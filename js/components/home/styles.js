@@ -198,8 +198,8 @@ export default {
     width: deviceWidth - 40,
   },
   input: {
-    fontSize: 12,
-    color: '#FFF',
+    fontSize: 14,
+    color: '#000',
   },
   searchButton: {
     flexDirection: 'row',

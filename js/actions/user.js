@@ -26,11 +26,11 @@ export const DEFAULT_PROFILE = {
 };
 
 export function login(user): Action {
-  return dispatch => postRequest('BookingCtrls/login', user)
+  return dispatch => postRequest('/api/v1/loginAT', user)
     .then((response) => {
       dispatch({
         type: USER_LOGIN,
-        payload: response.account,
+        payload: response,
       });
     });
 }

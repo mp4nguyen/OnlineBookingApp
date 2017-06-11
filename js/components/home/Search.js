@@ -37,7 +37,7 @@ class Search extends Component {
             <Input
               value={this.state.keyword} onChange={e => this.setState({ keyword: e.nativeEvent.text })}
               placeholder="SUBURD, PRACTITIONER, PRACTICE OR PROCEDURE" style={styles.input}
-              placeholderTextColor="#FFF"
+              placeholderTextColor="#000"
             />
           </Item>
           <Grid>

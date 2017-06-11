@@ -26,11 +26,11 @@ export function getBookings(): Action {
 }
 
 export function fetchBookingTypesFromServer(): Action {
-  return dispatch => getRequest('/BookingCtrls/getBookingTypes')
+  return dispatch => getRequest('/api/v1/getBookingTypes')
     .then((res) => {
       dispatch({
         type: FETCH_BOOKING_TYPE,
-        payload: res.BookingTypes,
+        payload: res,
       });
     }).catch((e) => {
       console.log(e);
@@ -46,12 +46,12 @@ export function setClickedBookingType(bookingTypeId): Action {
 
 
 export function searchClinics(clinics): Action {
-  return dispatch => getRequest('/BookingCtrls/searchClinics', { clinics: clinics.keyword })
+  return dispatch => getRequest('/api/v1/searchClinics', { clinics: clinics.keyword })
     .then(result =>
       dispatch({
         type: SEARCH_CLINIC,
         payload: {
-          list: result.Clinics,
+          list: result,
           search: clinics,
         },
       }));
@@ -113,4 +113,3 @@ export function setNewProfile(value): Action {
       resolve();
     });
 }
-

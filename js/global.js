@@ -1,4 +1,4 @@
 export const config = {
-  baseURL: 'https://2f3802e5.ngrok.io/api/',
-  resourceURL: 'https://2f3802e5.ngrok.io/api/container/',
+  baseURL: 'http://localhost:8000/',
+  resourceURL: 'https://d8c7316e.ngrok.io/api/container/',
 };

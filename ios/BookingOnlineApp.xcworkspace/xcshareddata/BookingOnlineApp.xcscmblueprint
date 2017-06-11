@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D7B38203FEB0F04475C6FA112D60758D5F9E5F96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D7B38203FEB0F04475C6FA112D60758D5F9E5F96" : 9223372036854775807,
+    "F7CE08314F48F5A30731A933DC8E304D6D2F5E46" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0523170B-46CB-4015-A474-EA72CA9CF15F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D7B38203FEB0F04475C6FA112D60758D5F9E5F96" : "booking-app-gui-react-native\/",
+    "F7CE08314F48F5A30731A933DC8E304D6D2F5E46" : "..\/skinApp\/skin-app-gui-react-native"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BookingOnlineApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/BookingOnlineApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/outsourcehieu\/booking-app-gui-react-native.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D7B38203FEB0F04475C6FA112D60758D5F9E5F96"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/outsourcehieu\/skin-app-gui-react-native.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F7CE08314F48F5A30731A933DC8E304D6D2F5E46"
+    }
+  ]
+}

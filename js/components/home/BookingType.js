@@ -7,6 +7,8 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 import { fetchBookingTypesFromServer, setClickedBookingType } from '../../actions/booking';
 import styles from './styles';
 import R from 'ramda';
+
+
 const BookingTypeButton = ({ x, i, onPress, selected }) => (
   <View
     style={[styles.bookingTypePanel,
@@ -29,7 +31,9 @@ const BookingTypeButton = ({ x, i, onPress, selected }) => (
       </TouchableOpacity>
     </View>
   </View>
-    );
+  );
+
+
 const RenderMoreButton = ({ x, list, onPress, selected }) => (
   <View
     style={[styles.bookingTypePanel,
