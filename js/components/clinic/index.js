@@ -49,8 +49,9 @@ class Clinic extends Component {
   }
 
   render() {
-    const { slots, clinicName, clinicLogo } = this.props.clinic;
-    const firstDate = slots && slots[0] && slots[0].apptTime && moment(slots[0].apptTime) || moment();
+    var { slots, clinicName, clinicLogo } = this.props.clinic;
+    const firstDate = slots && slots[0] && slots[0].fromTime && moment(slots[0].fromTime) || moment();
+    slots = slots||[];
     return (
       <Container style={{ backgroundColor: '#fff' }}>
         <HeaderContent />
@@ -76,7 +77,7 @@ class Clinic extends Component {
 
               <View style={styles.slotsWrapper}>
                 { slots.map((item, x) =>
-                  <TouchableOpacity key={x} onPress={() => this.selectSlot(item)} style={styles.timeBtn}><Text style={styles.slotText} >{moment(item.apptTime).format('h:mm a')}</Text></TouchableOpacity>)
+                  <TouchableOpacity key={x} onPress={() => this.selectSlot(item)} style={styles.timeBtn}><Text style={styles.slotText} >{moment(item.fromTime).format('h:mm a')}</Text></TouchableOpacity>)
                 }
               </View>
               <View style={{ padding: 20 }}>

@@ -43,7 +43,7 @@ class HeaderContent extends Component {
     if (!this.props.authenticated) {
       const child = this.props.children || (<Image source={headerLogo} style={styles.imageHeader} />);
       return (
-        <Header>
+        <Header style={{height:50}}>
           <Left>
             {this.props.navigation.index > 0 &&
             <Button transparent onPress={() => this.popRoute()}>

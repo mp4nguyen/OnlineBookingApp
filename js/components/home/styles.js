@@ -166,18 +166,18 @@ export default {
   bookingTypeContainer: {
     flex: 1,
     flexDirection: 'row',
-    width: deviceWidth - 30,
-    margin: 15,
+    margin: 0,
     flexWrap: 'wrap',
+    height: ((deviceHeight-50)*1)  / 3,
     backgroundColor: '#cccbcb',
     justifyContent: 'space-between',
   },
   bookingTypePanel: {
     paddingTop: 10,
-    paddingBottom: 5,
-    width: (deviceWidth - 30 - 2) / 3,
+    paddingBottom:0,
+    width: (deviceWidth) / 3,
     backgroundColor: '#fff',
-    height: 90,
+    height: (((deviceHeight-50)*1)  / 3)/2,
     marginTop: 1,
   },
   noMarginTop: {

@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import { Text, Icon, Item, Input } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import styles from './styles';
-import { searchClinics } from '../../actions/booking';
+import { searchClinics,setKeyWords } from '../../actions/booking';
+
 class Search extends Component {
   static propTypes = {
+    setKeyWords: PropTypes.func,
     searchClinic: PropTypes.func,
     search: PropTypes.shape({
       keyword: PropTypes.string,
@@ -15,19 +17,14 @@ class Search extends Component {
     }),
     searchSuccess: PropTypes.func,
   }
+
   constructor(props) {
     super(props);
-    this.state = {
-      keyword: props.search.keyword,
-    };
     this.searchClinic = this.searchClinic.bind(this);
   }
+
   searchClinic() {
-    this.props.searchClinic({
-      keyword: this.state.keyword,
-      bookingTypeId: this.props.search.bookingTypeId,
-    }).then(this.props.searchSuccess)
-    .catch(e => alert('error'));
+    this.props.searchClinic(this.props.search).then(this.props.searchSuccess.bind(this)).catch(e => alert('error:'+e));
   }
   render() {
     return (
@@ -35,7 +32,7 @@ class Search extends Component {
         <View style={styles.swiperTextContent} >
           <Item rounded style={styles.inputGrp}>
             <Input
-              value={this.state.keyword} onChange={e => this.setState({ keyword: e.nativeEvent.text })}
+              value={this.props.search.keyword} onChange={e => this.props.setKeyWords(e.nativeEvent.text)}
               placeholder="SUBURD, PRACTITIONER, PRACTICE OR PROCEDURE" style={styles.input}
               placeholderTextColor="#000"
             />
@@ -57,7 +54,11 @@ class Search extends Component {
 const mapStateToProps = state => ({
   search: state.booking.search,
 });
+
 const mapDispatchToProps = dispatch => ({
   searchClinic: search => dispatch(searchClinics(search)),
+  setKeyWords: keyword => dispatch(setKeyWords(keyword)),
+
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

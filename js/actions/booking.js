@@ -1,7 +1,8 @@
 import axios from 'axios';
+import moment from 'moment';
 
 import type { Action } from './types';
-import { getRequest } from '../libs/requests';
+import { getRequest,postRequest } from '../libs/requests';
 
 export const FETCH_BOOKING_LIST = 'FETCH_BOOKING_LIST';
 export const FETCH_BOOKING_TYPE = 'FETCH_BOOKING_TYPE';
@@ -11,6 +12,7 @@ export const MAKE_A_BOOKING = 'MAKE_A_BOOKING';
 export const UPDATE_A_BOOKING = 'UPDATE_A_BOOKING';
 export const SELECT_APPOINTMENT = 'SELECT_APPOINTMENT';
 export const NEW_PROFILE = 'NEW_PROFILE';
+export const SET_SEARCH_KEY_WORDS = 'SET_SEARCH_KEY_WORDS';
 
 
 export function getBookings(): Action {
@@ -28,10 +30,20 @@ export function getBookings(): Action {
 export function fetchBookingTypesFromServer(): Action {
   return dispatch => getRequest('/api/v1/getBookingTypes')
     .then((res) => {
+
       dispatch({
         type: FETCH_BOOKING_TYPE,
         payload: res,
       });
+
+      if (res.length >0){
+        dispatch({
+          type: SET_CLICKED_BOOKING_TYPE,
+          payload: res[0].bookingTypeId,
+        });
+      }
+
+
     }).catch((e) => {
       console.log(e);
     });
@@ -44,15 +56,22 @@ export function setClickedBookingType(bookingTypeId): Action {
   };
 }
 
+export function setKeyWords(keyword): Action {
+  return {
+    type: SET_SEARCH_KEY_WORDS,
+    payload: keyword,
+  };
+}
 
-export function searchClinics(clinics): Action {
-  return dispatch => getRequest('/api/v1/searchClinics', { clinics: clinics.keyword })
+export function searchClinics(searchInfo): Action {
+  var searchCriteria = {keyword: searchInfo.keyword,bookingTypeId: searchInfo.bookingTypeId,searchDate: moment().startOf('day') };
+  console.log("searchCriteria = ",searchCriteria);
+  return dispatch => postRequest('/api/v1/searchClinics', searchCriteria)
     .then(result =>
       dispatch({
         type: SEARCH_CLINIC,
         payload: {
           list: result,
-          search: clinics,
         },
       }));
 }

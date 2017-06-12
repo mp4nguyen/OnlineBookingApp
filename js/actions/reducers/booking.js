@@ -15,6 +15,7 @@ import {
   SEARCH_CLINIC,
   SELECT_APPOINTMENT,
   NEW_PROFILE,
+  SET_SEARCH_KEY_WORDS
 } from '../booking';
 
 import {
@@ -81,6 +82,7 @@ const initialState = {
   search: {
     keyword: '',
     bookingTypeId: null,
+    searchDate: null
   },
   moreType,
   initNewProfile: false,
@@ -102,6 +104,8 @@ const ACTION_HANDLERS = {
   //   }
   //   return state;
   // },
+
+
   [SELECT_APPOINTMENT]: (state, action) => ({
     ...state,
     appt: action.payload,
@@ -120,6 +124,13 @@ const ACTION_HANDLERS = {
     search: {
       ...state.search,
       bookingTypeId: action.payload,
+    },
+  }),
+  [SET_SEARCH_KEY_WORDS]: (state, action) => ({
+    ...state,
+    search: {
+      ...state.search,
+      keyword: action.payload,
     },
   }),
   [FETCH_BOOKING_TYPE]: (state, action) => ({
