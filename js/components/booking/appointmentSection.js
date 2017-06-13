@@ -14,14 +14,14 @@ class AppointmentSection extends Component {
     booking: React.PropTypes.object,
   }
   render() {
-    const { clinic, slot } = this.props.booking;
-    const { clinicName } = clinic;
-    const { apptTime } = slot;
+    const { slot } = this.props.booking;
+    const { clinicName } = this.props.clinic;
+    const { fromTime } = slot;
     return (
       <View style={styles.aptSection}>
         <View style={styles.timeInfo}>
-          <Text style={styles.date}>{moment(apptTime).format('dddd, DD MMM')}</Text>
-          <Text style={styles.time}>{moment(apptTime).format('h:mm a')}</Text>
+          <Text style={styles.date}>{moment(fromTime).format('dddd, DD MMM')}</Text>
+          <Text style={styles.time}>{moment(fromTime).format('h:mm a')}</Text>
         </View>
         <View>
           <Text style={styles.clinicText}>{clinicName}</Text>
@@ -33,6 +33,7 @@ class AppointmentSection extends Component {
 
 const mapStateToProps = state => ({
   booking: state.booking.booking,
+  clinic: state.searchClinic.clinic
 });
 
 export default connect(mapStateToProps)(AppointmentSection);

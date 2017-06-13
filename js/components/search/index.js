@@ -15,7 +15,7 @@ import HeaderContent from '../headerContent';
 import BookingType from './BookingType';
 
 
-import { searchClinics, selectClinic } from '../../actions/booking';
+import { searchClinics, selectClinic } from '../../actions/searchClinic';
 
 const {
   reset,
@@ -42,17 +42,50 @@ class SearchResult extends Component {
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
+
   componentDidMount() {
 
   }
+
   search() {
     this.props.search({ clinic: '' });
   }
+
   selectClinic(clinic) {
     this.props.selectClinic({ clinic })
       .then(this.pushRoute('clinic'))
       .catch(x => alert(x));
   }
+
+  renderClinic(item){
+
+      return (
+        <ListItem style={styles.listItem} onPress={() => this.selectClinic(item)}>
+          <Grid>
+            <Col size={1}>
+              <View style={styles.clinicIconContaier}>
+                <Image source={{ uri: item.iconBase64 }} style={styles.clinicIcon}  />
+              </View>
+            </Col>
+            <Col size={4}>
+              <Grid>
+                <Col size={4} style={styles.textItem}>
+                    <Text style={styles.name}>{item.clinicName}</Text>
+                    <Text style={styles.address}>{item.address}</Text>
+                    <Text style={styles.slotApt}>{item.slots && item.slots.length > 0 && item.slots[0] && moment(item.slots[0].fromTime).format('h:mm a')}
+                      {item.slots && item.slots.length - 1 > 0 && <Text style={styles.moreSlots}> +{item.slots.length - 1} more</Text>}
+                    </Text>
+                  </Col>
+                <Col size={2} style={{ justifyContent: 'center' }}>
+                    <Text style={styles.distance}>{item.distance} km        <Icon name="ios-arrow-forward" style={styles.icon} /></Text>
+                  </Col>
+              </Grid>
+            </Col>
+          </Grid>
+        </ListItem>
+      );
+  }
+
   render() {
     return (
       <Container>
@@ -89,29 +122,7 @@ class SearchResult extends Component {
         <Content showsVerticalScrollIndicator={false} style={{ backgroundColor: '#fff' }} >
           <List
             dataArray={this.props.list}
-            renderRow={item =>
-              <ListItem style={styles.listItem} onPress={() => this.selectClinic(item)}>
-                <Grid>
-                  <Col size={1}>
-                    <Image source={{ uri: item.icon }} style={styles.imagePicture} />
-                  </Col>
-                  <Col size={4}>
-                    <Grid>
-                      <Col size={4} style={styles.textItem}>
-                          <Text style={styles.name}>{item.clinicName}</Text>
-                          <Text style={styles.address}>{item.address}</Text>
-                          <Text style={styles.slotApt}>{item.slots[0] && moment(item.slots[0].apptTime).format('h:mma')}
-                            {item.slots.length - 1 > 0 && <Text style={styles.moreSlots}> +{item.slots.length - 1} more</Text>}
-                          </Text>
-                        </Col>
-                      <Col size={2} style={{ justifyContent: 'center' }}>
-                          <Text style={styles.distance}>{item.distance} km        <Icon name="ios-arrow-forward" style={styles.icon} /></Text>
-                        </Col>
-                    </Grid>
-                  </Col>
-                </Grid>
-              </ListItem>
-                        }
+            renderRow={item => this.renderClinic(item)}
           />
         </Content>
       </Container>
@@ -131,7 +142,7 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  list: state.booking.list,
+  list: state.searchClinic.clinics,
 });
 
 export default connect(mapStateToProps, bindAction)(SearchResult);

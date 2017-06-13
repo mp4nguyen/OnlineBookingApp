@@ -15,7 +15,7 @@ export default {
     height: null,
   },
   newsPoster: {
-    
+
   },
   newsPosterContent: {
     backgroundColor: 'yellow',
@@ -90,6 +90,10 @@ export default {
   },
   textGrey: {
     color: '#999',
+    fontWeight: 'bold',
+  },
+  disabledTextGrey: {
+    color: '#DDD',
     fontWeight: 'bold',
   },
   separate: {

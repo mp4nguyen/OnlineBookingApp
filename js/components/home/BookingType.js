@@ -4,7 +4,7 @@ import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-nativ
 import { connect } from 'react-redux';
 import { Text, Picker, Item } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
-import { fetchBookingTypesFromServer, setClickedBookingType } from '../../actions/booking';
+import { fetchBookingTypesFromServer, setClickedBookingType } from '../../actions/searchClinic';
 import styles from './styles';
 import R from 'ramda';
 
@@ -101,9 +101,9 @@ class BookingType extends Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.booking.types,
-  moreType: state.booking.moreType,
-  selectedType: state.booking.selectedType,
+  list: state.searchClinic.types,
+  moreType: state.searchClinic.moreType,
+  selectedType: state.searchClinic.searchCriteria.bookingTypeId,
 });
 const mapDispatchToProps = dispatch => ({
   getBookingType: () => dispatch(fetchBookingTypesFromServer()),

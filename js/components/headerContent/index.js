@@ -55,7 +55,7 @@ class HeaderContent extends Component {
           </Body>
           <Right>
             <TouchableOpacity style={styles.btnHeader} transparent onPress={() => this.pushRoute('login')} >
-              <Text style={styles.signinText}>Signin/Join</Text>
+              <Text style={styles.signinText}>Login</Text>
             </TouchableOpacity>
           </Right>
         </Header>

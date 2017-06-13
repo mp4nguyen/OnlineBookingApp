@@ -63,7 +63,7 @@ class Booking extends Component {
         <Content showsVerticalScrollIndicator={false}>
           <View style={styles.contentWrapper}>
             <AppointmentSection />
-            <Text style={styles.title}>ABOUT THIS PRACTICE</Text>
+            <Text style={styles.title}>ATTENDED THIS PRACTICE</Text>
             <View style={styles.about}>
               <TouchableOpacity
                 style={styles.radioBtn}

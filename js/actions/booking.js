@@ -67,13 +67,17 @@ export function searchClinics(searchInfo): Action {
   var searchCriteria = {keyword: searchInfo.keyword,bookingTypeId: searchInfo.bookingTypeId,searchDate: moment().startOf('day') };
   console.log("searchCriteria = ",searchCriteria);
   return dispatch => postRequest('/api/v1/searchClinics', searchCriteria)
-    .then(result =>
+    .then(result =>{
+      console.log("/api/v1/searchClinics = ",result);
       dispatch({
         type: SEARCH_CLINIC,
         payload: {
           list: result,
         },
-      }));
+      })
+    },err=>{
+      console.log("/api/v1/searchClinics = ",err);
+    });
 }
 
 export function selectClinic(clinic): Action {

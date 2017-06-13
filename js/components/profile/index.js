@@ -153,5 +153,9 @@ function bindAction(dispatch) {
   };
 }
 
+// const mapStateToProps = state => ({
+//   navigation: state.cardNavigation,
+//   myProfile: state.user.defaultProfile,
+// });
 
 export default connect(null, bindAction)(Profile);

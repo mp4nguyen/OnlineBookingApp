@@ -13,6 +13,7 @@ import { createUser } from '../../actions/user';
 const {
   reset,
   pushRoute,
+  popRoute,
 } = actions;
 
 class SignUp extends Component {
@@ -41,16 +42,25 @@ class SignUp extends Component {
     };
     this.changeValue = this.changeValue.bind(this);
     this.signUp = this.signUp.bind(this);
+    this.popRoute = this.popRoute.bind(this);
   }
+
   navigateTo(route) {
     this.props.navigateTo(route, 'home');
   }
+
   resetRoute(route) {
     this.props.resetRoute(route);
   }
+
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
+
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
+
   changeValue(input) {
     const that = this;
     return (target) => {
@@ -125,16 +135,24 @@ class SignUp extends Component {
             </View>
           </Content>
           <View style={styles.footer}>
-            <Button
-              bordered block
-              onPress={this.signUp}
-              style={styles.signupBtn}
-            >
-              <Text style={{ color: '#FFF' }}>Continue</Text>
-            </Button>
+            <View style={styles.buttonsContainer}>
+              <Left style={{ marginRight: 5 }}>
+                <Button bordered block onPress={this.popRoute} style={styles.signupBtn}>
+                  <Text style={{ color: '#FFF' }}>Cancel</Text>
+                </Button>
+              </Left>
+              <Right style={{ marginLeft: 5 }}>
+                <Button bordered block onPress={this.signUp} style={styles.signupBtn}>
+                  <Text style={{ color: '#FFF' }}>Continue</Text>
+                </Button>
+              </Right>
+            </View>
+
+
             <Button block transparent style={styles.termsButton}>
               <Text style={styles.termsText}>Terms & Conditions</Text>
             </Button>
+
           </View>
 
         </Image>
@@ -149,6 +167,7 @@ function bindAction(dispatch) {
     navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
     reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
+    popRoute: key => dispatch(popRoute(key)),
     createUser: user => dispatch(createUser(user)),
   };
 }

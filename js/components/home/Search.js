@@ -4,8 +4,10 @@ import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-nativ
 import { connect } from 'react-redux';
 import { Text, Icon, Item, Input } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
+import moment from 'moment';
+
 import styles from './styles';
-import { searchClinics,setKeyWords } from '../../actions/booking';
+import { searchClinics,setKeyWords,setSearchDate } from '../../actions/searchClinic';
 
 class Search extends Component {
   static propTypes = {
@@ -24,7 +26,10 @@ class Search extends Component {
   }
 
   searchClinic() {
-    this.props.searchClinic(this.props.search).then(this.props.searchSuccess.bind(this)).catch(e => alert('error:'+e));
+    this.props.setSearchDate(moment().startOf('day')).then(()=>{
+        this.props.searchClinic(this.props.search).then(this.props.searchSuccess.bind(this)).catch(e => alert('error:'+e));  
+    });
+
   }
   render() {
     return (
@@ -52,12 +57,14 @@ class Search extends Component {
 }
 
 const mapStateToProps = state => ({
-  search: state.booking.search,
+  search: state.searchClinic.searchCriteria,
 });
 
 const mapDispatchToProps = dispatch => ({
   searchClinic: search => dispatch(searchClinics(search)),
   setKeyWords: keyword => dispatch(setKeyWords(keyword)),
+  setSearchDate: date => dispatch(setSearchDate(date)),
+
 
 });
 

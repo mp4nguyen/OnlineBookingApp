@@ -20,6 +20,11 @@ export default {
     paddingRight: 20,
     paddingTop: 30,
   },
+  buttonsContainer: {
+    marginTop: 2,
+    padding: 0,
+    flexDirection: 'row',
+  },
   footer: {
     paddingLeft: 20,
     paddingRight: 20,

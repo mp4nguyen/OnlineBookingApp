@@ -38,6 +38,14 @@ export default {
     color: '#fff',
     fontWeight: 'bold',
   },
+
+  clinicIconContaier: {
+    margin: 0,
+  },
+   clinicIcon: {
+     height: deviceWidth/5,
+     width: deviceWidth/5,
+   },
   name: {
     fontWeight: 'bold',
     color: '#000',
@@ -64,6 +72,7 @@ export default {
   textItem: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    paddingLeft: 10,
   },
   listItem: {
     padding: 0,

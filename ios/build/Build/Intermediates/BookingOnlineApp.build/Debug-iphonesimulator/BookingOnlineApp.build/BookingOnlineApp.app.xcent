@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>F8279X92Y6.com.redimed.BookingOnlineApp</string>
+	<string>UA7AB584U5.com.redimed.BookingOnlineApp</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>F8279X92Y6.com.redimed.BookingOnlineApp</string>
+		<string>UA7AB584U5.com.redimed.BookingOnlineApp</string>
 	</array>
 </dict>
 </plist>

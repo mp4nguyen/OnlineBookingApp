@@ -8,9 +8,9 @@ const mapStateToProps = (state) => {
   const { user, defaultProfile } = state.user;
   return {
     navigation: state.cardNavigation,
-    myProfile: user && R.find(R.propEq('patientId', user.patientId), user.profiles) || defaultProfile,
-    profiles: user.profiles && [defaultProfile, ...user.profiles] || [defaultProfile],
-    userId: user.userId,
+    myProfile: defaultProfile,
+    profiles: user.user.account.profile.relationships && [defaultProfile, ...user.user.account.profile.relationships] || [defaultProfile],
+    userId: user.user.account.personId,
     user,
   };
 };

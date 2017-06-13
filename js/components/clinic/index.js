@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon, Body, H3 } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
-
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
+import moment from 'moment';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 import HeaderContent from '../headerContent';
-import moment from 'moment';
+import { selectSlot } from '../../actions/booking';
+import {nextDate,prevDate} from '../../actions/searchClinic';
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const primary = require('../../themes/variable').brandPrimary;
-import { selectSlot } from '../../actions/booking';
+
+
 const {
   pushRoute,
 } = actions;
@@ -31,8 +33,11 @@ class Clinic extends Component {
       key: React.PropTypes.string,
     }),
   }
+
   constructor(props) {
     super(props);
+    this.nextDate = this.nextDate.bind(this);
+    this.prevDate = this.prevDate.bind(this);
   }
 
   popRoute() {
@@ -42,16 +47,25 @@ class Clinic extends Component {
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
+
   selectSlot(slot) {
     this.props.selectSlot({ slot })
       .then(this.pushRoute('booking'))
       .catch((e) => alert('error!'));
   }
 
+  nextDate(){
+    this.props.nextDate();
+  }
+
+  prevDate(){
+    this.props.prevDate();
+  }
+
   render() {
     var { slots, clinicName, clinicLogo } = this.props.clinic;
-    const firstDate = slots && slots[0] && slots[0].fromTime && moment(slots[0].fromTime) || moment();
     slots = slots||[];
+    console.log("rendering clinics ..... date = ",this.props.searchDate);
     return (
       <Container style={{ backgroundColor: '#fff' }}>
         <HeaderContent />
@@ -70,9 +84,13 @@ class Clinic extends Component {
             </View>
             <View>
               <View style={styles.navDate}>
-                <TouchableOpacity><Icon name="ios-arrow-back" style={styles.textGrey} /></TouchableOpacity>
-                <Text style={styles.textGrey}>{ moment(firstDate).format('DD - MM - YYYY')}</Text>
-                <TouchableOpacity><Icon name="ios-arrow-forward" style={styles.textGrey} /></TouchableOpacity>
+                <TouchableOpacity activeOpacity={this.props.isBack ?  0.2 : 1} disabled={!this.props.isBack} onPress={this.prevDate} >
+                  <Icon name="ios-arrow-back" style={this.props.isBack ? styles.textGrey : styles.disabledTextGrey} />                  
+                </TouchableOpacity>
+                <Text style={styles.textGrey}>{ this.props.searchDate.format('DD - MM - YYYY')}</Text>
+                <TouchableOpacity onPress={this.nextDate} >
+                  <Icon name="ios-arrow-forward" style={styles.textGrey} />
+                </TouchableOpacity>
               </View>
 
               <View style={styles.slotsWrapper}>
@@ -121,12 +139,16 @@ function bindAction(dispatch) {
   return {
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     selectSlot: slot => dispatch(selectSlot(slot)),
+    nextDate: () => dispatch(nextDate()),
+    prevDate: () => dispatch(prevDate()),
   };
 }
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  clinic: state.booking.booking.clinic || {},
+  clinic: state.searchClinic.clinic || {},
+  isBack: state.searchClinic.searchCriteria.isBack,
+  searchDate: state.searchClinic.searchCriteria.searchDate
 });
 
 export default connect(mapStateToProps, bindAction)(Clinic);

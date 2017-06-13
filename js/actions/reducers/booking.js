@@ -3,7 +3,6 @@ import R from 'ramda';
 
 import {
   FETCH_BOOKING_LIST,
-  FETCH_BOOKING_TYPE,
   SET_ACTIVE_BOOKING_SECTION,
   MAKE_A_BOOKING,
   UPDATE_A_BOOKING,
@@ -11,11 +10,8 @@ import {
   AUTH_USER,
   VIEW_A_BOOKING,
   UPDATE_APPOINTMENT,
-  SET_CLICKED_BOOKING_TYPE,
-  SEARCH_CLINIC,
   SELECT_APPOINTMENT,
   NEW_PROFILE,
-  SET_SEARCH_KEY_WORDS
 } from '../booking';
 
 import {
@@ -113,29 +109,6 @@ const ACTION_HANDLERS = {
   [FETCH_BOOKING_LIST]: (state, action) => ({
     ...state,
     list: action.payload,
-  }),
-  [SEARCH_CLINIC]: (state, action) => ({
-    ...state,
-    ...action.payload,
-  }),
-  [SET_CLICKED_BOOKING_TYPE]: (state, action) => ({
-    ...state,
-    selectedType: action.payload,
-    search: {
-      ...state.search,
-      bookingTypeId: action.payload,
-    },
-  }),
-  [SET_SEARCH_KEY_WORDS]: (state, action) => ({
-    ...state,
-    search: {
-      ...state.search,
-      keyword: action.payload,
-    },
-  }),
-  [FETCH_BOOKING_TYPE]: (state, action) => ({
-    ...state,
-    types: action.payload,
   }),
   [SET_ACTIVE_BOOKING_SECTION]: (state, action) => ({
     ...state,

@@ -27,7 +27,7 @@ module.exports = StyleSheet.create({
     resizeMode: 'contain',
   },
   signinText: {
-    fontSize: 12,
+    fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
   },

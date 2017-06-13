@@ -18,6 +18,8 @@ const ACTION_HANDLERS = {
   [USER_LOGIN]: (state, action) => ({
     ...state,
     user: action.payload,
+    token: action.payload.accessToken,
+    defaultProfile: action.payload.account.profile
   }),
   [USER_LOGOUT]: (state, action) => ({
     ...state,

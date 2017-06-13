@@ -49,6 +49,7 @@
 		2E73D25BC88E4666ADCF91F1 /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1B1440ECD46A6BE337064 /* libRNSearchBar.a */; };
 		35570F8571464C85910F5EDC /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08CD99F2B5A4FF4B29DF683 /* Roboto_medium.ttf */; };
 		39EDF633D8BE4182AC1F66D2 /* Andale Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E244DCABEFB461CB3074831 /* Andale Mono.ttf */; };
+		3A6DB8DC36F14C869D19FF4B /* UTM-Dax.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7CD23D2D2AF4ABFA5C96B36 /* UTM-Dax.ttf */; };
 		3F1A6D45915241CE88B8EE69 /* SanFranciscoThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868D86512CD84AACA7C8EF80 /* SanFranciscoThin.ttf */; };
 		3FFC3116E5AA4BD3AF223B3B /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08ACB1F0B605459695FB3CF3 /* libCodePush.a */; };
 		423E4087DBD84A2FA28C6E99 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26387238EB1E4491A1349448 /* Rubik-BoldItalic.ttf */; };
@@ -62,6 +63,7 @@
 		6EDB18AB20124130A0546F02 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94DBE39AA2CC4F1D956A029A /* Zocial.ttf */; };
 		72B4711AFC7B46CC92EA7857 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8076F2A3C8B40AE9B117FA8 /* Foundation.ttf */; };
 		789A76EF463A487CA989C8B0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A78EDEFDE9647CEA3AB4257 /* Entypo.ttf */; };
+		7F283C1BE4BC4F56AAFD753C /* UTM-Dax_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B55096019254477949DABC5 /* UTM-Dax_medium.ttf */; };
 		801FABAE4ADE42D58282C554 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FB44EB1BB4E68938C49F5 /* Zocial.ttf */; };
 		8245450C6C3240FC909E99C9 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0390FD0000A8420AB6D77E1D /* EvilIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -105,6 +107,7 @@
 		EA6D8E74D5A839FB5B6986EC /* libPods-BookingOnlineApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC00881891F0B999D2B7FA6 /* libPods-BookingOnlineApp.a */; };
 		EF76F8F3678B4E1D91A597EC /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBF352BDB649A7BC1E5FEA /* Rubik-Regular.ttf */; };
 		EF91534D7A5D4F15A7261CB4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85BB698D0FFD44B28544FD5E /* Octicons.ttf */; };
+		FE12D3C53BCC4941B4DF5ADE /* UTM-Dax_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C042B9D631148138B171762 /* UTM-Dax_bold.ttf */; };
 		FE90871936DB48A9BEFC73C6 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7065B87A273A490DAE6339EF /* Rubik-Light.ttf */; };
 		FEFDD5F47FC4415982D7494C /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D02720CE2B44898CA1A01B /* Rubik-Italic.ttf */; };
 /* End PBXBuildFile section */
@@ -172,6 +175,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
+		};
+		221838E41EEEF1A3006536F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 221838E01EEEF1A3006536F0 /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -320,13 +330,6 @@
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = RNSVG;
 		};
-		DEACC8DC1EBD9D4200008490 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C106AB8D1CC84354B0B577BB /* AirMaps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
-			remoteInfo = AirMaps;
-		};
 		DEACC8FA1EBD9D4200008490 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94AC130A145E49D48A7853F0 /* RNVectorIcons.xcodeproj */;
@@ -352,6 +355,7 @@
 		0390FD0000A8420AB6D77E1D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		083C5D6A3283417BA7887F0F /* Comic Sans MS.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comic Sans MS.ttf"; path = "../node_modules/native-base/Fonts/Comic Sans MS.ttf"; sourceTree = "<group>"; };
 		08ACB1F0B605459695FB3CF3 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
+		0B55096019254477949DABC5 /* UTM-Dax_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "UTM-Dax_medium.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/UTM-Dax_medium.ttf"; sourceTree = "<group>"; };
 		0E244DCABEFB461CB3074831 /* Andale Mono.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Andale Mono.ttf"; path = "../node_modules/native-base/Fonts/Andale Mono.ttf"; sourceTree = "<group>"; };
 		0EC1F784478B468B9235355B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		103D20B2E793442E8EF2ED39 /* SanFrancisco.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SanFrancisco.ttf; path = "../node_modules/native-base/Fonts/SanFrancisco.ttf"; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1A64570C4069425D8420A2D4 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		1DEBF352BDB649A7BC1E5FEA /* Rubik-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Regular.ttf"; path = "../node_modules/native-base/Fonts/Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		221838E01EEEF1A3006536F0 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		222DF21A1ED0A37B002092C4 /* UTM-Dax_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UTM-Dax_bold.ttf"; path = "../../../skinApp/skin-app-gui-react-native/app/src/main/assets/fonts/UTM-Dax_bold.ttf"; sourceTree = "<group>"; };
 		222DF21B1ED0A37B002092C4 /* UTM-Dax_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UTM-Dax_medium.ttf"; path = "../../../skinApp/skin-app-gui-react-native/app/src/main/assets/fonts/UTM-Dax_medium.ttf"; sourceTree = "<group>"; };
 		222DF21C1ED0A37B002092C4 /* UTM-Dax.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UTM-Dax.ttf"; path = "../../../skinApp/skin-app-gui-react-native/app/src/main/assets/fonts/UTM-Dax.ttf"; sourceTree = "<group>"; };
@@ -402,6 +407,7 @@
 		94DBE39AA2CC4F1D956A029A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		96EE060B2EFC4E5F99181C8D /* Courier New.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Courier New.ttf"; path = "../node_modules/native-base/Fonts/Courier New.ttf"; sourceTree = "<group>"; };
 		9911531859894389B4A3D9BB /* Times New Roman.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Times New Roman.ttf"; path = "../node_modules/native-base/Fonts/Times New Roman.ttf"; sourceTree = "<group>"; };
+		9C042B9D631148138B171762 /* UTM-Dax_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "UTM-Dax_bold.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/UTM-Dax_bold.ttf"; sourceTree = "<group>"; };
 		A08CD99F2B5A4FF4B29DF683 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		A153AB13C06541CC86BA746B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		A15AFCAB11DA597523A843BE /* Pods-BookingOnlineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookingOnlineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookingOnlineApp/Pods-BookingOnlineApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -412,7 +418,6 @@
 		B11DC7326353411F98EA9529 /* Skia.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Skia.ttf; path = "../node_modules/native-base/Fonts/Skia.ttf"; sourceTree = "<group>"; };
 		B1DB8B16A47D433D8AC1280A /* Rubik-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Bold.ttf"; path = "../node_modules/native-base/Fonts/Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		B35C623A9F304BE587782547 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		C106AB8D1CC84354B0B577BB /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		D3258B56C8D34E3EA55366EB /* Rubik-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Black.ttf"; path = "../node_modules/native-base/Fonts/Rubik-Black.ttf"; sourceTree = "<group>"; };
 		DE9AEDE81ECE0FE10073E4E8 /* AIRGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSMarker.h; sourceTree = "<group>"; };
 		DE9AEDE91ECE0FE10073E4E8 /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
@@ -452,6 +457,7 @@
 		EDBF02EA91134206B20C0B56 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		EE63047B77E0F2B1DC1CE758 /* Pods-BookingOnlineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookingOnlineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookingOnlineApp/Pods-BookingOnlineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F2A1B1440ECD46A6BE337064 /* libRNSearchBar.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSearchBar.a; sourceTree = "<group>"; };
+		F7CD23D2D2AF4ABFA5C96B36 /* UTM-Dax.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "UTM-Dax.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/UTM-Dax.ttf"; sourceTree = "<group>"; };
 		F8076F2A3C8B40AE9B117FA8 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		F9C5A4F070B641DE8127072E /* Arial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Arial.ttf; path = "../node_modules/native-base/Fonts/Arial.ttf"; sourceTree = "<group>"; };
 		FD9816910C4E48458E74BADA /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
@@ -622,6 +628,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		221838E11EEEF1A3006536F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				221838E51EEEF1A3006536F0 /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		58900D6EF04B45108DCC4CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +687,9 @@
 				0EC1F784478B468B9235355B /* SimpleLineIcons.ttf */,
 				94DBE39AA2CC4F1D956A029A /* Zocial.ttf */,
 				AB85C31BFB414ECDA9DB0B43 /* OFL.txt */,
+				9C042B9D631148138B171762 /* UTM-Dax_bold.ttf */,
+				0B55096019254477949DABC5 /* UTM-Dax_medium.ttf */,
+				F7CD23D2D2AF4ABFA5C96B36 /* UTM-Dax.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -712,7 +729,7 @@
 				876C13F466D74973A817E2A0 /* CodePush.xcodeproj */,
 				115FDA0420C44F07BEA207E9 /* RNSearchBar.xcodeproj */,
 				94AC130A145E49D48A7853F0 /* RNVectorIcons.xcodeproj */,
-				C106AB8D1CC84354B0B577BB /* AirMaps.xcodeproj */,
+				221838E01EEEF1A3006536F0 /* AirMaps.xcodeproj */,
 				74CDDD32F2B44282A5A5921D /* RNSVG.xcodeproj */,
 			);
 			name = Libraries;
@@ -829,14 +846,6 @@
 			path = "../node_modules/react-native-maps/ios/AirGoogleMaps";
 			sourceTree = "<group>";
 		};
-		DEACC8D71EBD9D4200008490 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DEACC8DD1EBD9D4200008490 /* libAirMaps.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		DEACC8D91EBD9D4200008490 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,11 +952,13 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = UA7AB584U5;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = F8279X92Y6;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = UA7AB584U5;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -973,8 +984,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = DEACC8D71EBD9D4200008490 /* Products */;
-					ProjectRef = C106AB8D1CC84354B0B577BB /* AirMaps.xcodeproj */;
+					ProductGroup = 221838E11EEEF1A3006536F0 /* Products */;
+					ProjectRef = 221838E01EEEF1A3006536F0 /* AirMaps.xcodeproj */;
 				},
 				{
 					ProductGroup = DE1747B31EB79D0800A7B13C /* Products */;
@@ -1102,6 +1113,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		221838E51EEEF1A3006536F0 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 221838E41EEEF1A3006536F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1244,13 +1262,6 @@
 			remoteRef = DE9AED971ECE0C7C0073E4E8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DEACC8DD1EBD9D4200008490 /* libAirMaps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAirMaps.a;
-			remoteRef = DEACC8DC1EBD9D4200008490 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		DEACC8FB1EBD9D4200008490 /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1322,6 +1333,9 @@
 				89A691B087CA48699274DCEF /* SimpleLineIcons.ttf in Resources */,
 				6EDB18AB20124130A0546F02 /* Zocial.ttf in Resources */,
 				96DC3FFDC7ED4AADAB5C18FE /* OFL.txt in Resources */,
+				FE12D3C53BCC4941B4DF5ADE /* UTM-Dax_bold.ttf in Resources */,
+				7F283C1BE4BC4F56AAFD753C /* UTM-Dax_medium.ttf in Resources */,
+				3A6DB8DC36F14C869D19FF4B /* UTM-Dax.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1502,6 +1516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UA7AB584U5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1522,6 +1537,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookingOnlineApp.app/BookingOnlineApp";
 			};
 			name = Debug;
@@ -1531,6 +1547,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = UA7AB584U5;
 				INFOPLIST_FILE = BookingOnlineAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1547,6 +1564,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookingOnlineApp.app/BookingOnlineApp";
 			};
 			name = Release;
@@ -1559,7 +1577,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = F8279X92Y6;
+				DEVELOPMENT_TEAM = UA7AB584U5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1576,8 +1594,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.redimed.BookingOnlineApp;
 				PRODUCT_NAME = BookingOnlineApp;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "21feebcd-f6cf-4d52-8235-2d8a21907f6d";
+				PROVISIONING_PROFILE_SPECIFIER = "Online Booking";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1589,7 +1607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F8279X92Y6;
+				DEVELOPMENT_TEAM = UA7AB584U5;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1606,7 +1624,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.redimed.BookingOnlineApp;
 				PRODUCT_NAME = BookingOnlineApp;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "21feebcd-f6cf-4d52-8235-2d8a21907f6d";
+				PROVISIONING_PROFILE_SPECIFIER = "Online Booking";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Image, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right } from 'native-base';
+import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right,Body } from 'native-base';
 import R from 'ramda';
 import styles from './styles';
 import navigateTo from '../../actions/sideBarNav';
@@ -42,18 +42,26 @@ class Login extends Component {
       theme: React.PropTypes.object,
     };
     this.login = this.login.bind(this);
+    this.popRoute = this.popRoute.bind(this);
   }
 
   replaceRoute(route) {
     const navigation = this.props.navigation;
     this.props.replaceAtIndex(navigation.index, { key: route }, navigation.key);
   }
+
   navigateTo(route) {
     this.props.navigateTo(route, 'home');
   }
+
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
+
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
+
   login() {
     const { login, popRoute, navigation } = this.props;
     login && login(this.state).then(() => {
@@ -107,12 +115,19 @@ class Login extends Component {
 
               <View style={styles.otherLinksContainer}>
                 <Left>
-                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.navigateTo('signUp')}>
+                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.pushRoute('signUp')}>
                     <Text style={styles.helpBtns}>
-                      Create Account
+                      Signup
                       </Text>
                   </Button>
                 </Left>
+                <Body>
+                  <Button transparent style={{ alignSelf: 'center' }} onPress={this.popRoute}>
+                    <Text style={styles.helpBtns}>
+                      Cancel
+                      </Text>
+                  </Button>
+                </Body>
                 <Right>
                   <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.pushRoute('needhelp')}>
                     <Text style={styles.helpBtns}>
