@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>F8279X92Y6.org.reactjs.native.example.BookingOnlineAppTests</string>
+	<string>UA7AB584U5.org.reactjs.native.example.BookingOnlineAppTests</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>F8279X92Y6.org.reactjs.native.example.BookingOnlineAppTests</string>
+		<string>UA7AB584U5.org.reactjs.native.example.BookingOnlineAppTests</string>
 	</array>
 </dict>
 </plist>

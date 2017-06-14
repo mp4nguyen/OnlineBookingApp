@@ -4,6 +4,8 @@ PODS:
   - GoogleMaps/Base (2.2.0)
   - GoogleMaps/Maps (2.2.0):
     - GoogleMaps/Base
+  - React (0.41.2):
+    - React/Core (= 0.41.2)
   - React/Core (0.41.2):
     - React/cxxreact
     - React/yoga
@@ -32,6 +34,8 @@ PODS:
   - React/RCTWebSocket (0.41.2):
     - React/Core
   - React/yoga (0.41.2)
+  - RNDeviceInfo (0.9.3):
+    - React
 
 DEPENDENCIES:
   - GoogleMaps
@@ -46,15 +50,19 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
 
 EXTERNAL SOURCES:
   React:
     :path: ../node_modules/react-native
+  RNDeviceInfo:
+    :path: ../node_modules/react-native-device-info
 
 SPEC CHECKSUMS:
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   React: 2b10c07d947dea71c144a33764e9162ed81e3825
+  RNDeviceInfo: dc3cbee96cd2392cf03d6ff6191dc15f1606a166
 
-PODFILE CHECKSUM: 7ba32663cc93fb44c5731e63c5565e0a9d86124c
+PODFILE CHECKSUM: 7d5051e9bdcf1d078c600c0807537666063744b8
 
 COCOAPODS: 1.2.1

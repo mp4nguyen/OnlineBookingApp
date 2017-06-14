@@ -9,6 +9,8 @@ import moment from 'moment';
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
+
+import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
@@ -79,37 +81,22 @@ class Booking extends Component {
                 <Text style={styles.buttonTextPrimary}>Create New Profile</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.radioBtnPrimary} onPress={() => this.pushRoute('bookingProfile')}>
+            <TouchableOpacity style={styles.radioBtnPrimary} onPress={() => this.pushRoute('profiles')}>
               <Text style={styles.buttonTextPrimary}>Edit Selected Patient Information</Text>
             </TouchableOpacity>
           </View>
-          <Button
-            onPress={() => this.pushRoute('confirmBooking')}
-            full
-            style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}
-          ><Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text></Button>
         </Content>
-        <Footer style={styles.footer}>
-          <View style={styles.footerPanel}>
-            <Text style={styles.text}>Patient Profile</Text>
-            <View style={styles.wrap}>
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-            </View>
-          </View>
-        </Footer>
+        <BookingFooter step={2} continueFunc={() => this.pushRoute('confirmBooking')}/>
       </Container>
     );
   }
 }
 
+/*
+<TouchableOpacity style={styles.radioBtnPrimary} onPress={() => this.pushRoute('bookingProfile')}>
+  <Text style={styles.buttonTextPrimary}>Edit Selected Patient Information</Text>
+</TouchableOpacity>
+*/
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),

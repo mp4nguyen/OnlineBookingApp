@@ -1,6 +1,6 @@
 
 import type { Action } from './types';
-import { postRequest } from '../libs/requests';
+import { postRequest,setToken } from '../libs/requests';
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_FORGOT_PASSWORD = 'USER_FORGOT_PASSWORD';
@@ -9,7 +9,7 @@ export const SET_PROFILE = 'SET_PROFILE';
 export const CREATE_PROFILE = 'CREATE_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_ROFILE';
 export const DELETE_PROFILE = 'DELETE_PROFILE';
-
+export const SELECT_PROFILE = 'SELECT_PROFILE';
 
 export const DEFAULT_PROFILE = {
   firstName: '',
@@ -28,10 +28,32 @@ export const DEFAULT_PROFILE = {
 export function login(user): Action {
   return dispatch => postRequest('/api/v1/loginAT', user)
     .then((response) => {
+      setToken(response.accessToken);
       dispatch({
         type: USER_LOGIN,
         payload: response,
       });
+    });
+}
+
+export function logout(): Action {
+  return dispatch => postRequest('/api/v1/logout')
+    .then((response) => {
+      console.log("/api/v1/logout",response);
+      dispatch({
+        type: USER_LOGOUT,
+      });
+    });
+}
+
+export function selectProfile(profile): Action {
+  return dispatch =>
+    new Promise((resolve) => {
+      dispatch({
+        type: SELECT_PROFILE,
+        payload:profile
+      });
+      resolve();
     });
 }
 

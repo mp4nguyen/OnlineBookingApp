@@ -90,7 +90,7 @@ class Profile extends Component {
     const onPop = this.props.onPop ? () => this.props.onPop(this.state.profile) : null;
     return (
       <Container theme={theme}>
-        <Image source={require('../../../images/BG-signUp.jpg')} style={styles.background} >
+
           <HeaderContent rightButton={rightButton} onPop={onPop}>
             <View style={styles.selectedPatient}>
               <Picker
@@ -104,13 +104,13 @@ class Profile extends Component {
                 onValueChange={this.pickerChange}
               >
                 {
-                profiles.map(x => (<Item key={x.patientId} label={`${x.firstName} ${x.lastName}`} value={x.patientId} />))
-              }
+                  profiles.map(x => (<Item key={x.patientId} label={`${x.firstName} ${x.lastName}`} value={x.patientId} />))
+                }
               </Picker>
               <Icon name="ios-arrow-down" style={{ color: '#fff', fontSize: 20, alignSelf: 'center' }} />
             </View>
           </HeaderContent>
-          <Content showsVerticalScrollIndicator={false}>
+          <Content showsVerticalScrollIndicator={false} style={{backgroundColor: '#00ADEE'}}>
             <ProfileForm profile={this.state.profile} onChange={profile => this.setState({ profile })} />
             <View style={styles.control}>
               <Button
@@ -118,7 +118,7 @@ class Profile extends Component {
                 onPress={this.submit}
                 style={styles.signupBtn}
               >
-                <Text style={{ color: '#FFF' }}>Save</Text>
+                <Text style={{ color: '#333' }}>Save</Text>
               </Button>
 
               {this.props.showDelete && this.state.profile.patientId > 0 && user.patientId !== this.state.profile.patientId &&
@@ -127,12 +127,12 @@ class Profile extends Component {
                   onPress={this.delete}
                   style={styles.signupBtn}
                 >
-                  <Text style={{ color: '#FFF' }}>Delete</Text>
+                  <Text style={{ color: '#333' }}>Delete</Text>
                 </Button>
                 }
             </View>
           </Content>
-        </Image>
+
       </Container>
     );
   }
@@ -153,9 +153,15 @@ function bindAction(dispatch) {
   };
 }
 
-// const mapStateToProps = state => ({
-//   navigation: state.cardNavigation,
-//   myProfile: state.user.defaultProfile,
-// });
+const mapStateToProps = (state) => {
+  const { user, defaultProfile } = state.user;
+  return {
+    navigation: state.cardNavigation,
+    myProfile: state.user.profile,
+    profiles: state.user.profiles,
+    userId: state.user.fatherPersonId,
+    user,
+  };
+};
 
-export default connect(null, bindAction)(Profile);
+export default connect(mapStateToProps, bindAction)(Profile);

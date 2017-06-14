@@ -26,6 +26,10 @@ export default {
     flex: 1,
     minHeight: deviceHeight - 160,
   },
+  confirmBookingContentWrapper: {
+    flex: 1,
+    minHeight: deviceHeight - 150,
+  },
   aptSection: {
     backgroundColor: '#00ADEE',
     flexDirection: 'row',
@@ -52,10 +56,20 @@ export default {
     backgroundColor: primary,
     borderWidth: 0,
     borderTopWidth: 0,
+    height: 100,
+    flexDirection: 'column',
+  },
+  footer2: {
+    backgroundColor: primary,
+    borderWidth: 0,
+    borderTopWidth: 0,
+    height: 55,
+    flexDirection: 'column',
   },
   footerPanel: {
     paddingTop: 10,
     paddingBottom: 10,
+    height: 55,
   },
   text: {
     color: '#fff',

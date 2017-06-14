@@ -2,9 +2,9 @@ import axios from 'axios';
 import { config } from '../global';
 import R from 'ramda';
 import { showSpinner, hideSpinner } from '../actions/spinner';
-const {
-    baseURL,
-} = config;
+const {baseURL,} = config;
+
+var accessToken = '';
 
 const instance = axios.create({
   baseURL,
@@ -44,7 +44,8 @@ export const setDispacher = (dispatch) => {
 };
 
 export const setToken = (token) => {
-  
+  accessToken = token;
+  instance.defaults.headers.common['accessToken'] = token;
 };
 
 export const postRequest = (url, data, options = {}) => instance.post(url, data, options);

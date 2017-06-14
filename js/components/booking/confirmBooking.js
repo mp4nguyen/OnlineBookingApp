@@ -10,6 +10,8 @@ import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
+
+import BookingFooter from './bookingFooter';
 import styles from './styles';
 import HeaderContent from '../headerContent';
 const deviceWidth = Dimensions.get('window').width;
@@ -49,28 +51,27 @@ class Booking extends Component {
     this.props.reset(this.props.navigation.key);
   }
   render() {
-    const { clinic, slot } = this.props.booking;
-    const { clinicName } = clinic;
-    const { apptTime, doctorName } = slot;
+    const {  slot } = this.props.booking;
+
     return (
       <Container>
         <HeaderContent />
 
         <Content showsVerticalScrollIndicator={false}>
-          <View style={styles.contentWrapper}>
+          <View style={styles.confirmBookingContentWrapper}>
             <Text style={styles.confirmText}>Confirm your appointment</Text>
             <View>
             <Grid>
               <Col style={styles.detailWrap}>
                 <Icon name="ios-person-outline" />
-                <Text style={styles.detailTime}>{moment(apptTime).format('h:mm a')}</Text>
-                <Text style={styles.detailPrimary}>{moment(apptTime).format('dddd')}</Text>
-                <Text style={styles.detailSecondary}>{moment(apptTime).format('MMM DD, YYYY')}</Text>
+                <Text style={styles.detailTime}>{moment(slot.fromTime).format('h:mm a')}</Text>
+                <Text style={styles.detailPrimary}>{moment(slot.fromTime).format('dddd')}</Text>
+                <Text style={styles.detailSecondary}>{moment(slot.fromTime).format('MMM DD, YYYY')}</Text>
               </Col>
               <Col style={styles.detailWrap}>
                 <Icon name="ios-person-outline" />
-                <Text style={styles.detailPrimary}>{clinicName}</Text>
-                <Text style={styles.detailSecondary}>{doctorName}</Text>
+                <Text style={styles.detailPrimary}>{this.props.clinic.clinicName}</Text>
+                <Text style={styles.detailSecondary}>{slot.firstName + ' ' + slot.lastName}</Text>
               </Col>
             </Grid>
             </View>
@@ -84,22 +85,7 @@ class Booking extends Component {
             <Icon name="ios-arrow-forward" style={{ fontSize: 13, color: '#000' }} />
           </Button>
         </Content>
-        <Footer style={styles.footer}>
-          <View style={styles.footerPanel}>
-            <Text style={styles.text}>Confirm Booking</Text>
-            <View style={styles.wrap}>
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-            </View>
-          </View>
-        </Footer>
+        <BookingFooter step={3}/>
       </Container>
     );
   }
@@ -116,6 +102,7 @@ function bindAction(dispatch) {
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
   booking: state.booking.booking,
+  clinic: state.searchClinic.clinic
 });
 
 export default connect(mapStateToProps, bindAction)(Booking);

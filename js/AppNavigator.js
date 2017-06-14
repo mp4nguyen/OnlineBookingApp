@@ -12,8 +12,8 @@ import Home from './components/home/';
 import SignUp from './components/sign-up/';
 import SignUpProfile from './components/sign-up-profile/';
 
-import MyProfile from './containers/my-profile/';
-
+import MyProfile from './components/profile';
+import Profiles from './components/profiles';
 
 import SideBar from './components/sideBar';
 import Settings from './components/settings';
@@ -107,6 +107,8 @@ class AppNavigator extends Component {
         return <SignUp />;
       case 'signUpProfile':
         return <SignUpProfile />;
+      case 'profiles':
+        return <Profiles />;        
       case 'profile':
         return <MyProfile />;
       case 'sideBar':

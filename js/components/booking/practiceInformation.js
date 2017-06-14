@@ -9,6 +9,8 @@ import moment from 'moment';
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
+
+import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
@@ -48,9 +50,9 @@ class PracticeInformation extends Component {
     const { navigation } = this.props;
     const pushRouteFn = this.props.pushRoute;
     if (this.props.user) {
-      const profile = R.find(R.propEq('patientId', this.props.user.patientId), this.props.user.profiles);
+
       this.props.updateBooking({
-        profile: profile || this.props.user.profiles[0],
+        profile: this.props.profile
       }).then(() => {
         pushRouteFn({ key: 'patientProfile', index: 1 }, navigation.key);
       });
@@ -73,33 +75,14 @@ class PracticeInformation extends Component {
               </Text>
             </View>
           </View>
-          <Button
-            full
-            onPress={() => this.submit('')}
-            style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}
-          >
-            <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text></Button>
+
         </Content>
-        <Footer style={styles.footer}>
-          <View style={styles.footerPanel}>
-            <Text style={styles.text}>Practice Information</Text>
-            <View style={styles.wrap}>
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-            </View>
-          </View>
-        </Footer>
+        <BookingFooter step={1} continueFunc={this.submit}/>
       </Container>
     );
   }
 }
+
 
 function bindAction(dispatch) {
   return {
@@ -113,6 +96,7 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
   booking: state.booking.booking,
   user: state.user.user,
+  profile: state.user.profile,
 });
 
 export default connect(mapStateToProps, bindAction)(PracticeInformation);

@@ -8,6 +8,8 @@ import { Grid, Col } from 'react-native-easy-grid';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { DEFAULT_PROFILE as defaultProfile } from '../../actions/user';
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
+//import {Icon2} from 'react-native-vector-icons/FontAwesome';
+
 import ProgressBar from './../loaders/ProgressBar';
 import styles from './styles';
 import DatePicker from 'react-native-datepicker';
@@ -52,7 +54,7 @@ class ProfileForm extends Component {
       <View style={styles.signupContainer}>
         <View style={styles.formContainer}>
           <Item style={styles.inputGrp}>
-            <Icon name="person" />
+            <Icon name="person" style={styles.iconColor}/>
             <Input
               value={this.state.firstName}
               onChange={this.changeValue('firstName')}
@@ -60,9 +62,9 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="person" />
+            <Icon name="person" style={styles.iconColor}/>
             <Input
               value={this.state.lastName}
               onChange={this.changeValue('lastName')}
@@ -70,12 +72,12 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="male" style={styles.switchIcon} />
+            <Icon name= {this.state.gender?"female":"male"}  style={styles.iconColor} />
             <Grid style={styles.switchGrid}>
               <Col style={styles.textContainer}>
-                
+
                 <Text style={styles.switchText}>Gender</Text>
               </Col>
               <Col style={styles.switchContainer}>
@@ -99,17 +101,17 @@ class ProfileForm extends Component {
               </Col>
             </Grid>
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="person" />
+            <Icon name="ios-calendar-outline" style={styles.iconColor} />
             <DatePicker
               style={{ width: 200, borderWidth: 0 }}
-              date={moment(this.state.dob).format('YYYY-MM-DD')}
+              date={moment(this.state.dob).format('DD/MM/YYYY')}
               mode="date"
               placeholder="Date Of Birth *"
-              format="YYYY-MM-DD"
-              minDate="1900-05-01"
-              maxDate={moment().format('YYYY-MM-DD')}
+              format="DD/MM/YYYY"
+              minDate="01/01/1990"
+              maxDate={moment().format('DD/MM/YYYY')}
               confirmBtnText="Select"
               cancelBtnText="Cancel"
               showIcon={false}
@@ -123,15 +125,15 @@ class ProfileForm extends Component {
                 },
                 dateText: {
                   fontSize: 15,
-                  color: '#fff',
+                  color: '#333',
                 },
               }}
               onDateChange={this.changeValue('dob')}
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="mail-open" />
+            <Icon name="mail-open" style={styles.iconColor}/>
             <Input
               value={this.state.email}
               onChange={this.changeValue('email')}
@@ -139,9 +141,9 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="mail-open" />
+            <Icon name="ios-pin-outline" style={styles.iconColor}/>
             <Input
               value={this.state.suburb}
               onChange={this.changeValue('suburb')}
@@ -149,9 +151,9 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="mail-open" />
+            <Icon name="ios-pin-outline" style={styles.iconColor}/>
             <Input
               value={this.state.address}
               onChange={this.changeValue('address')}
@@ -159,9 +161,9 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
           <Item style={styles.inputGrp}>
-            <Icon name="mail-open" />
+            <Icon name="ios-pin-outline" style={styles.iconColor}/>
             <Input
               value={this.state.postCode}
               onChange={this.changeValue('postCode')}
@@ -169,7 +171,7 @@ class ProfileForm extends Component {
               placeholderTextColor="#FFF"
             />
           </Item>
-          <ProgressBar style={styles.progress} color="#fff" progress={30} />
+          <ProgressBar style={styles.progress} color="#fff" progress={100} />
 
         </View>
       </View>

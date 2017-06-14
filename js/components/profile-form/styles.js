@@ -27,9 +27,12 @@ export default {
     borderWidth: 0,
     marginBottom: 0,
   },
+  iconColor: {
+    color: '#333',
+  },
   input: {
     paddingLeft: 10,
-    color: '#FFF',
+    color: '#333',
   },
   progress: {
     marginLeft: 35,
@@ -55,7 +58,7 @@ export default {
   switchOptionText: {
     fontSize: 11,
     paddingTop: 5,
-    color: '#fff',
+    color: '#555',
     textAlignVertical: 'bottom',
   },
   switchGrid: {
@@ -63,7 +66,7 @@ export default {
     marginTop: 10,
   },
   switchText: {
-    color: '#fff',
+    color: '#333',
     paddingLeft: 5,
     paddingTop: Platform.OS === 'android' ? 3 : 0,
   },

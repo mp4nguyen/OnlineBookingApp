@@ -10,10 +10,13 @@ import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
 import moment from 'moment';
+
 import styles from './styles';
 import HeaderContent from '../headerContent';
 import { updateBooking } from '../../actions/booking';
 import AppointmentSection from './appointmentSection';
+import BookingFooter from './bookingFooter';
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const primary = require('../../themes/variable').brandPrimary;
@@ -42,6 +45,7 @@ class Booking extends Component {
     this.booking = this.booking.bind(this);
     this.pushRoute = this.pushRoute.bind(this);
   }
+
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
   }
@@ -49,11 +53,13 @@ class Booking extends Component {
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
+
   booking() {
     this.props.updateBooking({ reasonForApt: this.state.reasonForApt })
       .then(this.pushRoute('practiceInformation'))
       .catch(e => alert('error!'));
   }
+
   render() {
     const { clinic, slot, aptType, aboutThisPracice } = this.props.booking;
     return (
@@ -116,35 +122,35 @@ class Booking extends Component {
             </View>
             <Text style={{ textAlign: 'center', padding: 30, fontSize: 13, color: 'red' }}> Is this an emergency ?</Text>
           </View>
-          <Button
-full
-            onPress={this.booking}
-            style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}
-          >
-            <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text>
-          </Button>
         </Content>
-        <Footer style={styles.footer}>
-          <View style={styles.footerPanel}>
-            <Text style={styles.text}>Book Appointment</Text>
-            <View style={styles.wrap}>
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-            </View>
-          </View>
-        </Footer>
+        <BookingFooter step={0} continueFunc={this.booking}/>
       </Container>
     );
   }
 }
 
+/*
+<Button full onPress={this.booking} style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}>
+  <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text>
+</Button>
+
+<Footer style={styles.footer}>
+  <View style={styles.footerPanel}>
+    <Text style={styles.text}>Book Appointment</Text>
+    <View style={styles.wrap}>
+      <View style={[styles.cycle, styles.cycleFull]} />
+      <View style={styles.line} />
+      <View style={styles.cycle} />
+      <View style={styles.line} />
+      <View style={styles.cycle} />
+      <View style={styles.line} />
+      <View style={styles.cycle} />
+      <View style={styles.line} />
+      <View style={styles.cycle} />
+    </View>
+  </View>
+</Footer>
+*/
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),

@@ -110,7 +110,7 @@ export default {
   signupBtn: {
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#fff',
     width: (deviceWidth - 50) / 2,
   },
   picker: {

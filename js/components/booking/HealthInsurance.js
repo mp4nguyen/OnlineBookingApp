@@ -9,6 +9,8 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
+
+import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
@@ -67,28 +69,8 @@ class Booking extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <Button
-            onPress={() => this.pushRoute('confirmBooking')}
-            block
-            style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}>
-            <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text></Button>
         </Content>
-        <Footer style={styles.footer}>
-          <View style={styles.footerPanel}>
-            <Text style={styles.text}>Health Insurance</Text>
-            <View style={styles.wrap}>
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={[styles.cycle, styles.cycleFull]} />
-              <View style={styles.line} />
-              <View style={styles.cycle} />
-            </View>
-          </View>
-        </Footer>
+        <BookingFooter step={0} continueFunc={() => this.pushRoute('confirmBooking')}/>
       </Container>
     );
   }

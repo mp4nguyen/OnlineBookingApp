@@ -21,6 +21,7 @@
     "react-native-button": "^1.6.0",
     "react-native-code-push": "^1.17.0-beta",
     "react-native-datepicker": "^1.5.1",
+    "react-native-device-info": "^0.10.2",
     "react-native-easy-grid": "0.1.7",
     "react-native-gifted-spinner": "0.0.4",
     "react-native-lightbox": "^0.6.0",

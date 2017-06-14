@@ -35,8 +35,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
+      username: 'phuong_thql',
+      password: '1234',
     };
     this.constructor.childContextTypes = {
       theme: React.PropTypes.object,
@@ -87,6 +87,7 @@ class Login extends Component {
               <Item rounded style={styles.inputGrp}>
                 <Icon name="person" />
                 <Input
+                  value = {this.state.username}
                   placeholder="Username"
                   onChangeText={username => this.setState({ username })}
                   placeholderTextColor="#FFF"
@@ -97,6 +98,7 @@ class Login extends Component {
               <Item rounded style={styles.inputGrp}>
                 <Icon name="unlock" />
                 <Input
+                  value = {this.state.password}
                   placeholder="Password"
                   secureTextEntry
                   placeholderTextColor="#FFF"

@@ -40,7 +40,7 @@ class SideBar extends Component {
   reset() {
     this.props.reset(this.props.navigation.key);
   }
-  signOut() { 
+  signOut() {
     this.props.signOut().then(this.props.closeDrawer);
   }
   render() {
@@ -48,6 +48,14 @@ class SideBar extends Component {
       <Container>
         <Image source={require('../../../images/sid.png')} style={styles.background} >
           <Content style={styles.drawerContent}>
+            <View style={styles.viewWelCome}>
+              <Text style={styles.welcomeText}>Welcome</Text>
+              <Text style={styles.username}> {`${this.props.account.firstName} ${this.props.account.lastName}`}</Text>
+            </View>
+            <ListItem button onPress={() => this.navigateTo('home')} iconLeft style={styles.links} >
+              <Icon name="ios-home-outline" />
+              <Text style={styles.linkText}> HOME</Text>
+            </ListItem>
             <ListItem button onPress={() => this.navigateTo('profile')} iconLeft style={styles.links} >
               <Icon name="ios-person-outline" />
               <Text style={styles.linkText} >MY PROFILE</Text>
@@ -90,6 +98,7 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
+  account: state.user.defaultProfile
 });
 
 export default connect(mapStateToProps, bindAction)(SideBar);

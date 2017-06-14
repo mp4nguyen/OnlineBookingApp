@@ -9,8 +9,8 @@ const mapStateToProps = (state) => {
   return {
     navigation: state.cardNavigation,
     myProfile: defaultProfile,
-    profiles: user.user.account.profile.relationships && [defaultProfile, ...user.user.account.profile.relationships] || [defaultProfile],
-    userId: user.user.account.personId,
+    profiles: user.account.profile.relationships && [defaultProfile, ...user.account.profile.relationships] || [defaultProfile],
+    userId: user.account.personId,
     user,
   };
 };

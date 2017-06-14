@@ -107,6 +107,7 @@
 		EA6D8E74D5A839FB5B6986EC /* libPods-BookingOnlineApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC00881891F0B999D2B7FA6 /* libPods-BookingOnlineApp.a */; };
 		EF76F8F3678B4E1D91A597EC /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBF352BDB649A7BC1E5FEA /* Rubik-Regular.ttf */; };
 		EF91534D7A5D4F15A7261CB4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85BB698D0FFD44B28544FD5E /* Octicons.ttf */; };
+		F9CB9753248742B99DC56470 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064AEA4C2AE443AB8A83241A /* libRNDeviceInfo.a */; };
 		FE12D3C53BCC4941B4DF5ADE /* UTM-Dax_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C042B9D631148138B171762 /* UTM-Dax_bold.ttf */; };
 		FE90871936DB48A9BEFC73C6 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7065B87A273A490DAE6339EF /* Rubik-Light.ttf */; };
 		FEFDD5F47FC4415982D7494C /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D02720CE2B44898CA1A01B /* Rubik-Italic.ttf */; };
@@ -182,6 +183,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
+		};
+		22E575261EF0D94500E45CAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2814CCDD1F9C4FBBAA0DAA42 /* RNDeviceInfo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
+			remoteInfo = RNDeviceInfo;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -353,6 +361,7 @@
 		0238F36ACB5643968C034E3D /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-LightItalic.ttf"; path = "../node_modules/native-base/Fonts/Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		0350815D39BB409DAD643F3E /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		0390FD0000A8420AB6D77E1D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		064AEA4C2AE443AB8A83241A /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		083C5D6A3283417BA7887F0F /* Comic Sans MS.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comic Sans MS.ttf"; path = "../node_modules/native-base/Fonts/Comic Sans MS.ttf"; sourceTree = "<group>"; };
 		08ACB1F0B605459695FB3CF3 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		0B55096019254477949DABC5 /* UTM-Dax_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "UTM-Dax_medium.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/UTM-Dax_medium.ttf"; sourceTree = "<group>"; };
@@ -377,6 +386,7 @@
 		222DF21B1ED0A37B002092C4 /* UTM-Dax_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UTM-Dax_medium.ttf"; path = "../../../skinApp/skin-app-gui-react-native/app/src/main/assets/fonts/UTM-Dax_medium.ttf"; sourceTree = "<group>"; };
 		222DF21C1ED0A37B002092C4 /* UTM-Dax.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UTM-Dax.ttf"; path = "../../../skinApp/skin-app-gui-react-native/app/src/main/assets/fonts/UTM-Dax.ttf"; sourceTree = "<group>"; };
 		26387238EB1E4491A1349448 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-BoldItalic.ttf"; path = "../node_modules/native-base/Fonts/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2814CCDD1F9C4FBBAA0DAA42 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		2880A400FCE8418FBAA1A026 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* BookingOnlineApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BookingOnlineApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* BookingOnlineApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BookingOnlineApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,6 +504,7 @@
 				CD028267608F4E508429AF61 /* libRNVectorIcons.a in Frameworks */,
 				EA6D8E74D5A839FB5B6986EC /* libPods-BookingOnlineApp.a in Frameworks */,
 				BA6BB1A902B84211B1C95040 /* libRNSVG.a in Frameworks */,
+				F9CB9753248742B99DC56470 /* libRNDeviceInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +647,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		22E575081EF0D94500E45CAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22E575271EF0D94500E45CAC /* libRNDeviceInfo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		58900D6EF04B45108DCC4CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +750,7 @@
 				94AC130A145E49D48A7853F0 /* RNVectorIcons.xcodeproj */,
 				221838E01EEEF1A3006536F0 /* AirMaps.xcodeproj */,
 				74CDDD32F2B44282A5A5921D /* RNSVG.xcodeproj */,
+				2814CCDD1F9C4FBBAA0DAA42 /* RNDeviceInfo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1036,6 +1056,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 22E575081EF0D94500E45CAC /* Products */;
+					ProjectRef = 2814CCDD1F9C4FBBAA0DAA42 /* RNDeviceInfo.xcodeproj */;
+				},
+				{
 					ProductGroup = DE1747B51EB79D0800A7B13C /* Products */;
 					ProjectRef = 115FDA0420C44F07BEA207E9 /* RNSearchBar.xcodeproj */;
 				},
@@ -1120,6 +1144,13 @@
 			fileType = archive.ar;
 			path = libAirMaps.a;
 			remoteRef = 221838E41EEEF1A3006536F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22E575271EF0D94500E45CAC /* libRNDeviceInfo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNDeviceInfo.a;
+			remoteRef = 22E575261EF0D94500E45CAC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1531,6 +1562,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1553,6 +1585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1651,6 +1684,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1680,6 +1714,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1718,6 +1753,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.BookingOnlineApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1742,6 +1778,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

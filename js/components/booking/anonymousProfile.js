@@ -9,6 +9,8 @@ import moment from 'moment';
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
+
+import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
@@ -51,7 +53,7 @@ class AnonymousProfile extends Component {
     if (this.props.user) {
       this.props.pushRoute({ key: 'patientProfile', index: 1 }, this.props.navigation.key);
     } else {
-      this.props.navigateTo('healthInsurance', 'practiceInformation');
+      this.props.navigateTo('confirmBooking', 'practiceInformation');
     }
   }
   changeProfile(value) {
@@ -60,7 +62,7 @@ class AnonymousProfile extends Component {
   render() {
     return (
       <Container>
-        <Image source={require('../../../images/BG-signUp.jpg')} style={styles.background} >
+
           <HeaderContent />
           <AppointmentSection />
           <Content showsVerticalScrollIndicator={false}>
@@ -70,29 +72,8 @@ class AnonymousProfile extends Component {
               </View>
             </View>
           </Content>
-          <Button
-            full
-            onPress={() => this.submit('')}
-            style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}
-          >
-            <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text></Button>
-          <Footer style={styles.footer}>
-            <View style={styles.footerPanel}>
-              <Text style={styles.text}>Patient Profile</Text>
-              <View style={styles.wrap}>
-                <View style={[styles.cycle, styles.cycleFull]} />
-                <View style={styles.line} />
-                <View style={[styles.cycle, styles.cycleFull]} />
-                <View style={styles.line} />
-                <View style={[styles.cycle, styles.cycleFull]} />
-                <View style={styles.line} />
-                <View style={styles.cycle} />
-                <View style={styles.line} />
-                <View style={styles.cycle} />
-              </View>
-            </View>
-          </Footer>
-        </Image>
+          <BookingFooter step={2} continueFunc={() => this.submit('')}/>
+        
       </Container>
     );
   }

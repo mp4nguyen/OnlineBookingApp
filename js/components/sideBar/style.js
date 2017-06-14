@@ -29,4 +29,23 @@ export default {
     paddingTop: Platform.OS === 'android' ? 20 : 30,
     marginBottom: (Platform.OS === 'ios') ? -50 : -10,
   },
+  viewWelCome: {
+    margin: 10,
+    alignItems: 'center',
+    paddingBottom: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: '#fff',
+  },
+  welcomeText: {
+    fontWeight: 'bold',
+    paddingLeft: 15,
+    color: '#fff',
+  },
+  username: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    paddingLeft: 15,
+    color: '#FA1',
+    marginTop: 10,
+  },
 };

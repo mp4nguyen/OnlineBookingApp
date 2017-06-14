@@ -5,6 +5,7 @@ import CodePush from 'react-native-code-push';
 import { Container, Text, View, InputGroup, Input, Icon } from 'native-base';
 import Modal from 'react-native-modalbox';
 
+
 import AppNavigator from './AppNavigator';
 import ProgressBar from './components/loaders/ProgressBar';
 import theme from './themes/base-theme';
@@ -50,6 +51,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+
+
     // CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
     //         (status) => {
     //           switch (status) {

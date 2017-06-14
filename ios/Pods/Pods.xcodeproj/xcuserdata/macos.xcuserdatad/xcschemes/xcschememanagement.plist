@@ -8,25 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>29</integer>
+		</dict>
+		<key>RNDeviceInfo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>React.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>30</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8D90DB39A00FF88FE6C344AC5C123BBE</key>
+		<key>107BCE5AEC789602118BC43C19655B2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A11CC9039B3DD4E67622938D5051E90F</key>
+		<key>3AA01B3488D90BC9DDEF3EAE9F331201</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72D9594AAAF5178BA96F201E3151F6C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
