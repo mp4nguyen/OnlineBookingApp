@@ -4,6 +4,7 @@ import moment from 'moment';
 import type { Action } from './types';
 import { getRequest,postRequest } from '../libs/requests';
 
+export const SELECT_SLOT = 'SELECT_SLOT';
 export const FETCH_BOOKING_LIST = 'FETCH_BOOKING_LIST';
 export const FETCH_BOOKING_TYPE = 'FETCH_BOOKING_TYPE';
 export const SET_CLICKED_BOOKING_TYPE = 'SET_CLICKED_BOOKING_TYPE';
@@ -28,6 +29,7 @@ export function getBookings(): Action {
 }
 
 export function fetchBookingTypesFromServer(): Action {
+  console.log("fetchBookingTypesFromServer................");
   return dispatch => getRequest('/api/v1/getBookingTypes')
     .then((res) => {
 
@@ -49,12 +51,6 @@ export function fetchBookingTypesFromServer(): Action {
     });
 }
 
-export function setClickedBookingType(bookingTypeId): Action {
-  return {
-    type: SET_CLICKED_BOOKING_TYPE,
-    payload: bookingTypeId,
-  };
-}
 
 export function setKeyWords(keyword): Action {
   return {
@@ -97,7 +93,7 @@ export function selectSlot(slot): Action {
   return dispatch =>
     new Promise((resolve) => {
       dispatch({
-        type: UPDATE_A_BOOKING,
+        type: SELECT_SLOT,
         payload: slot,
       });
       resolve();

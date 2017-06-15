@@ -1,6 +1,8 @@
 
 import type { Action } from './types';
 import { postRequest,setToken } from '../libs/requests';
+
+export const CHANGE_PROFILE_VALUE = 'CHANGE_PROFILE_VALUE';
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_FORGOT_PASSWORD = 'USER_FORGOT_PASSWORD';
@@ -24,6 +26,13 @@ export const DEFAULT_PROFILE = {
   suburb: '',
   isReceiveNews: true,
 };
+
+export function changeProfileValue(value): Action {
+    return ({
+      type: CHANGE_PROFILE_VALUE,
+      payload: value,
+    });
+}
 
 export function login(user): Action {
   return dispatch => postRequest('/api/v1/loginAT', user)

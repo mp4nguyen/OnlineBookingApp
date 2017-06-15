@@ -3,8 +3,9 @@ import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'rea
 import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Content, Text, Button, Icon, Body, H3, Footer, ListItem, Radio, Item, Picker, Input } from 'native-base';
+import { Container, Header, Content, Text, Button, Body, H3, Footer, ListItem, Radio, Item, Picker, Input } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
@@ -51,8 +52,9 @@ class Booking extends Component {
     this.props.reset(this.props.navigation.key);
   }
   render() {
-    const {  slot } = this.props.booking;
-
+    const   slot  = this.props.slot;
+    const {clinic} = this.props;
+    const { firstName, lastName, dob, email, address, mobile,ward,suburbDistrict,stateProvince,postcode } = this.props.profile;
     return (
       <Container>
         <HeaderContent />
@@ -61,28 +63,39 @@ class Booking extends Component {
           <View style={styles.confirmBookingContentWrapper}>
             <Text style={styles.confirmText}>Confirm your appointment</Text>
             <View>
-            <Grid>
-              <Col style={styles.detailWrap}>
-                <Icon name="ios-person-outline" />
-                <Text style={styles.detailTime}>{moment(slot.fromTime).format('h:mm a')}</Text>
-                <Text style={styles.detailPrimary}>{moment(slot.fromTime).format('dddd')}</Text>
-                <Text style={styles.detailSecondary}>{moment(slot.fromTime).format('MMM DD, YYYY')}</Text>
-              </Col>
-              <Col style={styles.detailWrap}>
-                <Icon name="ios-person-outline" />
-                <Text style={styles.detailPrimary}>{this.props.clinic.clinicName}</Text>
-                <Text style={styles.detailSecondary}>{slot.firstName + ' ' + slot.lastName}</Text>
-              </Col>
-            </Grid>
+              <Grid>
+                <Col style={styles.detailWrap}>
+                  <Icon name="clock-o" size={30} color="#000"/>
+                  <Text style={styles.detailTime}>{moment(slot.fromTime).format('h:mm a')}</Text>
+                  <Text style={styles.detailPrimary}>{moment(slot.fromTime).format('dddd')}</Text>
+                  <Text style={styles.detailSecondary}>{moment(slot.fromTime).format('MMM DD, YYYY')}</Text>
+                </Col>
+                <Col style={styles.detailWrap}>
+                  <Icon name="user-md" size={30} color="#000"/>
+                  <Text style={styles.detailTime}>{'Dr. ' + slot.firstName + ' ' + slot.lastName}</Text>
+                  <Text style={styles.detailPrimary}>{clinic.clinicName}</Text>
+                  <Text style={styles.detailSecondary}>{clinic.address}</Text>
+                  <Text style={styles.detailSecondary}>{clinic.ward + ' ' + clinic.suburbDistrict + ' ' + clinic.stateProvice}</Text>
+                </Col>
+              </Grid>
             </View>
+            <Text style={styles.confirmText}>For</Text>
+              <View>
+                <Grid>
+                  <Col style={styles.detailWrap}>
+                    <Icon name="user-o" size={30} color="#000"/>
+                    <Text style={styles.detailTime}>{firstName} {lastName}</Text>
+                  </Col>
+                </Grid>
+              </View>
             <Text style={styles.term}>
-            By continuing with your booking, you agree to our Terms of Use, Privacy Policy, and Collection Notice.
+              By continuing with your booking, you agree to our Terms of Use, Privacy Policy, and Collection Notice.
             </Text>
             <Button style={styles.complete} onPress={this.submit}><Text style={{ fontWeight: 'bold', fontSize: 14, color: '#fff' }}>Complete Booking</Text></Button>
           </View>
           <Button block style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
             <Text style={{ fontSize: 14, color: '#000' }}>Frequently Asked Questions</Text>
-            <Icon name="ios-arrow-forward" style={{ fontSize: 13, color: '#000' }} />
+            <Icon name="angle-right" style={{ fontSize: 25, color: '#000' }} />
           </Button>
         </Content>
         <BookingFooter step={3}/>
@@ -101,8 +114,9 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  booking: state.booking.booking,
-  clinic: state.searchClinic.clinic
+  slot: state.booking.slot,
+  clinic: state.searchClinic.clinic,
+  profile: state.user.profile
 });
 
 export default connect(mapStateToProps, bindAction)(Booking);

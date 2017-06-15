@@ -40,7 +40,7 @@ class Booking extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reasonForApt: props.booking.reasonForApt,
+      reasonForApt: '',
     };
     this.booking = this.booking.bind(this);
     this.pushRoute = this.pushRoute.bind(this);
@@ -61,7 +61,8 @@ class Booking extends Component {
   }
 
   render() {
-    const { clinic, slot, aptType, aboutThisPracice } = this.props.booking;
+    var aboutThisPracice = false;
+    var aptType = 'isGeneralAppointment';
     return (
       <Container>
         <HeaderContent />
@@ -129,28 +130,6 @@ class Booking extends Component {
   }
 }
 
-/*
-<Button full onPress={this.booking} style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#00ADEE' }}>
-  <Text style={{ fontSize: 14, color: '#fff' }}>Continue Booking</Text>
-</Button>
-
-<Footer style={styles.footer}>
-  <View style={styles.footerPanel}>
-    <Text style={styles.text}>Book Appointment</Text>
-    <View style={styles.wrap}>
-      <View style={[styles.cycle, styles.cycleFull]} />
-      <View style={styles.line} />
-      <View style={styles.cycle} />
-      <View style={styles.line} />
-      <View style={styles.cycle} />
-      <View style={styles.line} />
-      <View style={styles.cycle} />
-      <View style={styles.line} />
-      <View style={styles.cycle} />
-    </View>
-  </View>
-</Footer>
-*/
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),
@@ -161,7 +140,7 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  booking: state.booking.booking,
+  slot: state.booking.slot,
 });
 
 export default connect(mapStateToProps, bindAction)(Booking);

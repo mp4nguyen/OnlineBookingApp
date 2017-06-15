@@ -90,6 +90,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax_bold.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax_medium.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -103,6 +106,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax_bold.ttf"
+  install_resource "../../node_modules/react-native-vector-icons/Fonts/UTM-Dax_medium.ttf"
   install_resource "../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"
 fi
 

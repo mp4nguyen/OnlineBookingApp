@@ -3,9 +3,12 @@ import _ from 'lodash';
 import { actions } from 'react-native-navigation-redux-helpers';
 
 const {
+  replaceAtIndex,
+  pushRoute,
+  reset,
   popRoute,
-  pushRoute
 } = actions;
+
 
 export const SET_FOR_MEMBERS = 'SET_FOR_MEMBERS';
 export const SET_FOR_NEWMEMBER = 'SET_FOR_NEWMEMBER';
@@ -21,6 +24,15 @@ function myPushRoute(route,key) {
   pushRoute({ key: route, index: 1 }, key);
 }
 
+export function replaceRoute(route) {
+  return (dispatch,getState)=>{
+    var state = getState();
+    //console.log(" state = ",state);
+    var navigation = state.cardNavigation;
+    //console.log(" navigation = ",navigation);
+    dispatch(replaceAtIndex(navigation.index, { key: route }, navigation.key));
+  }
+}
 
 export function goToPage(nextPage) {
   return (dispatch,getState)=>{

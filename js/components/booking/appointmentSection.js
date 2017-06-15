@@ -14,7 +14,7 @@ class AppointmentSection extends Component {
     booking: React.PropTypes.object,
   }
   render() {
-    const { slot } = this.props.booking;
+    const  slot  = this.props.slot;
     const { clinicName } = this.props.clinic;
     const { fromTime,firstName,lastName } = slot;
     var doctorName = "Dr. " + firstName + " " + lastName;
@@ -35,7 +35,7 @@ class AppointmentSection extends Component {
 }
 
 const mapStateToProps = state => ({
-  booking: state.booking.booking,
+  slot: state.booking.slot,
   clinic: state.searchClinic.clinic
 });
 

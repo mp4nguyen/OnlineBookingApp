@@ -11,7 +11,7 @@ const primary = require('../../themes/variable').brandPrimary;
 class BookingFooter extends Component {
 
   static propTypes = {
-    step: React.PropTypes.int,
+    step: React.PropTypes.number,
     continueFunc: React.PropTypes.func,
   }
   constructor(props) {

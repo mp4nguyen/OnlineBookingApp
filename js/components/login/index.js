@@ -66,7 +66,10 @@ class Login extends Component {
     const { login, popRoute, navigation } = this.props;
     login && login(this.state).then(() => {
       const { key } = R.last(R.reverse(navigation.routes));
-      if (!!key && key === 'home') {
+      //console.log("login.js.login: key = ",key);
+      if(this.props.nextPage){
+        this.replaceRoute(this.props.nextPage);
+      }else if (!!key && key === 'home') {
         popRoute(navigation.key);
       } else {
         this.replaceRoute('home');
@@ -161,6 +164,7 @@ function bindActions(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
+  nextPage: state.pageControl.login.nextPage
 });
 
 export default connect(mapStateToProps, bindActions)(Login);

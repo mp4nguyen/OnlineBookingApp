@@ -49,7 +49,7 @@ class Clinic extends Component {
   }
 
   selectSlot(slot) {
-    this.props.selectSlot({ slot })
+    this.props.selectSlot(slot)
       .then(this.pushRoute('booking'))
       .catch((e) => alert('error!'));
   }
@@ -85,7 +85,7 @@ class Clinic extends Component {
             <View>
               <View style={styles.navDate}>
                 <TouchableOpacity activeOpacity={this.props.isBack ?  0.2 : 1} disabled={!this.props.isBack} onPress={this.prevDate} >
-                  <Icon name="ios-arrow-back" style={this.props.isBack ? styles.textGrey : styles.disabledTextGrey} />                  
+                  <Icon name="ios-arrow-back" style={this.props.isBack ? styles.textGrey : styles.disabledTextGrey} />
                 </TouchableOpacity>
                 <Text style={styles.textGrey}>{ this.props.searchDate.format('DD - MM - YYYY')}</Text>
                 <TouchableOpacity onPress={this.nextDate} >

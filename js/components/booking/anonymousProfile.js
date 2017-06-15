@@ -15,6 +15,9 @@ import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
 import { updateBooking } from '../../actions/booking';
+import { goToPage,replaceRoute } from '../../actions/nextPage';
+import {setLoginProps} from '../../actions/pageControl';
+
 import R from 'ramda';
 import ProfileForm from '../profile-form';
 const deviceWidth = Dimensions.get('window').width;
@@ -29,6 +32,7 @@ const {
 class AnonymousProfile extends Component {
 
   static propTypes = {
+    goToPage: React.PropTypes.func,
     updateBooking: React.PropTypes.func,
     navigateTo: React.PropTypes.func,
     booking: React.PropTypes.object,
@@ -43,6 +47,14 @@ class AnonymousProfile extends Component {
     super(props);
     this.submit = this.submit.bind(this);
     this.changeProfile = this.changeProfile.bind(this);
+  }
+
+  componentWilMount(){
+    console.log("AnonymousProfile.js.componentWilMount............");
+  }
+
+  componentDidMount(){
+    console.log("AnonymousProfile.js.componentDidMount............");
   }
 
   popRoute() {
@@ -66,7 +78,7 @@ class AnonymousProfile extends Component {
           <HeaderContent />
           <AppointmentSection />
           <View style={styles.alertView}>
-              <Button full onPress={this.props.continueFunc} style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#FFF' }}>
+              <Button full onPress={this.props.goToLogin} style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#FFF' }}>
                 <Text style={{ fontSize: 14, color: '#00f' }}>Login to save time</Text>
               </Button>
           </View>
@@ -90,6 +102,11 @@ function bindAction(dispatch) {
     popRoute: key => dispatch(popRoute(key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     updateBooking: item => dispatch(updateBooking(item)),
+    goToLogin: () => {
+      dispatch(setLoginProps({propName:'nextPage',propValue:'patientProfile'}))
+      dispatch(replaceRoute('login'));
+    },
+    
   };
 }
 

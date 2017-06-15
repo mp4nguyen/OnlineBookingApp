@@ -1,13 +1,33 @@
 import axios from 'axios';
 import { config } from '../global';
 import R from 'ramda';
+var DeviceInfo = require('react-native-device-info');
+// console.log("Device Manufacturer", DeviceInfo.getManufacturer());  // e.g. Apple
+//
+// console.log("Device Model", DeviceInfo.getModel());  // e.g. iPhone
+//
+// console.log("Device Name", DeviceInfo.getSystemName());  // e.g. iPhone OS
+//
+// console.log("Device Version", DeviceInfo.getSystemVersion());  // e.g. 9.0
+//
+// console.log("Bundle Id", DeviceInfo.getBundleId());  // e.g. com.learnium.mobile
+//
+// console.log("Build Number", DeviceInfo.getBuildNumber());  // e.g. 89
+//
+// console.log("App Version", DeviceInfo.getVersion());  // e.g. 1.1.0
+//
+// console.log("App Version (Readable)", DeviceInfo.getReadableVersion());  // e.g. 1.1.0.89
+
+
+
+
 import { showSpinner, hideSpinner } from '../actions/spinner';
-const {baseURL,} = config;
+const {simulatorURL,machineURL} = config;
 
 var accessToken = '';
 
-const instance = axios.create({
-  baseURL,
+var instance = axios.create({
+  baseURL:simulatorURL,
 });
 
 let dispatcher;
@@ -41,6 +61,15 @@ instance.interceptors.response.use(reSuccess, failure);
 
 export const setDispacher = (dispatch) => {
   dispatcher = dispatch;
+};
+
+export const setURL = () => {
+  var model = DeviceInfo.getModel();
+  console.log("Device Model = ", model);  // e.g. iPhone
+  if(model != 'Simulator'){
+    instance.defaults.baseURL = machineURL;
+    console.log("new url = ",instance.defaults.baseURL);
+  }
 };
 
 export const setToken = (token) => {

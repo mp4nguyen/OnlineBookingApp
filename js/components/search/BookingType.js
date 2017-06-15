@@ -45,11 +45,13 @@ class BookingType extends Component {
   }
 }
 
+
 const mapStateToProps = state => ({
-  list: state.booking.types,
-  moreType: state.booking.moreType,
-  selectedType: state.booking.selectedType,
+  list: state.searchClinic.types,
+  moreType: state.searchClinic.moreType,
+  selectedType: state.searchClinic.searchCriteria.bookingTypeId,
 });
+
 const mapDispatchToProps = dispatch => ({
   getBookingType: () => dispatch(fetchBookingTypesFromServer()),
   setSelectedType: x => dispatch(setClickedBookingType(x)),

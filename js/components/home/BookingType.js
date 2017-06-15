@@ -78,6 +78,7 @@ class BookingType extends Component {
   }
   componentDidMount() {
     const { getBookingType } = this.props;
+    console.log("BookingType.js:...... => componentDidMount");
     getBookingType && getBookingType();
   }
 

@@ -237,4 +237,7 @@ export default {
     fontSize: 18,
     color: '#B6B7B7',
   },
+  confirmationIcon: {
+    color: '#000',
+  },
 };

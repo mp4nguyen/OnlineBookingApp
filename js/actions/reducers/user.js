@@ -1,6 +1,6 @@
 
 import type { Action } from '../types';
-import { USER_LOGIN, USER_LOGOUT, DEFAULT_PROFILE, CREATE_USER, CREATE_PROFILE, UPDATE_PROFILE, DELETE_PROFILE,SELECT_PROFILE } from '../user';
+import {CHANGE_PROFILE_VALUE, USER_LOGIN, USER_LOGOUT, DEFAULT_PROFILE, CREATE_USER, CREATE_PROFILE, UPDATE_PROFILE, DELETE_PROFILE,SELECT_PROFILE } from '../user';
 import { AsyncStorage } from 'react-native';
 import R from 'ramda';
 export type State = {
@@ -38,6 +38,15 @@ const ACTION_HANDLERS = {
     return ({
       ...state,
       profile: action.payload,
+    });
+  },
+  [CHANGE_PROFILE_VALUE]: (state, action) => {
+    console.log("action.payload = ",action.payload);
+    var value = action.payload
+    var profile = {...state.profile,...value};
+    return ({
+      ...state,
+      profile,
     });
   },
   [USER_LOGOUT]: (state, action) => ({
