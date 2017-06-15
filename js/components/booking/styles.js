@@ -101,6 +101,16 @@ export default {
     marginTop: 5,
     backgroundColor: '#fff',
   },
+  alertView:{
+    backgroundColor:'#fff',
+    justifyContent: 'center',
+  },
+  alertLogin: {
+    color: '#00F',
+    marginTop: 10,
+    marginLeft: 20,
+    marginBottom: 5,
+  },
   title: {
     color: '#005D80',
     marginTop: 20,

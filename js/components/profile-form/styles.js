@@ -29,11 +29,9 @@ export default {
   },
   iconColor: {
     color: '#333',
+    marginLeft: 20,
   },
-  input: {
-    paddingLeft: 10,
-    color: '#333',
-  },
+
   progress: {
     marginLeft: 35,
     marginBottom: 5,
@@ -67,11 +65,51 @@ export default {
   },
   switchText: {
     color: '#333',
-    paddingLeft: 5,
+    paddingLeft: 20,
     paddingTop: Platform.OS === 'android' ? 3 : 0,
   },
   aswitchText: {
     color: '#222',
     fontWeight: 'bold',
+  },
+
+  contentWrapper: {
+    flex: 1,
+    minHeight: deviceHeight - 160,
+  },
+  title: {
+    color: '#005D80',
+    marginTop: 5,
+    marginLeft: 20,
+    marginBottom: 5,
+  },
+  about: {
+    backgroundColor: '#fff',
+  },
+  genderView: {
+    flexDirection: 'row',
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+  },
+  inputView: {
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+  },
+  input: {
+    color: '#000',
+    height: 40,
+    width: deviceWidth - 20,
+    flex: null,
+    paddingLeft: 20
+  },
+  label: {
+    color: '#333',
+    paddingLeft: 20,
+  },
+  dobLabel: {
+    color: '#333',
+    height: 30,
+    marginTop: 10,
+    paddingLeft: 20,
   },
 };

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Body, H3, Footer, ListItem, Radio, Item, Picker, Input } from 'native-base';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 import { Grid, Col, Row } from 'react-native-easy-grid';
@@ -79,7 +79,7 @@ class Booking extends Component {
               <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 5, paddingTop: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Text style={styles.patientName}>{firstName} {lastName}</Text>
                 <TouchableOpacity style={styles.editButton} onPress={this.addNewProfile}>
-                  <Icon name="facebook" style={styles.editIcon} />
+                  <Icon name="edit" style={styles.editIcon} />
                 </TouchableOpacity>
               </View>
               <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between' }}>

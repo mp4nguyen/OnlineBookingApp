@@ -65,6 +65,11 @@ class AnonymousProfile extends Component {
 
           <HeaderContent />
           <AppointmentSection />
+          <View style={styles.alertView}>
+              <Button full onPress={this.props.continueFunc} style={{ borderRadius: 0, margin: 0, borderWidth: 0, backgroundColor: '#FFF' }}>
+                <Text style={{ fontSize: 14, color: '#00f' }}>Login to save time</Text>
+              </Button>
+          </View>
           <Content showsVerticalScrollIndicator={false}>
             <View style={styles.contentWrapper}>
               <View>
@@ -73,7 +78,7 @@ class AnonymousProfile extends Component {
             </View>
           </Content>
           <BookingFooter step={2} continueFunc={() => this.submit('')}/>
-        
+
       </Container>
     );
   }
