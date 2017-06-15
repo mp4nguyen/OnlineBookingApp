@@ -48,9 +48,13 @@ export default {
     fontSize: 14,
     fontWeight: 'bold',
   },
+  doctorName: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
   clinicText: {
     color: '#fff',
-    fontWeight: 'bold',
   },
   footer: {
     backgroundColor: primary,
@@ -184,10 +188,7 @@ export default {
   patientName: {
     color: '#004E6F',
     fontWeight: 'bold',
-    width: deviceWidth - 40,
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20,
+    fontSize: 20,
   },
   buttonTextPrimary: {
     color: primary,
@@ -210,5 +211,20 @@ export default {
     paddingLeft: 25,
     fontSize: 15,
     textAlign: 'left',
+  },
+  patientInfo: {
+    paddingLeft: 0,
+    fontSize: 15,
+    textAlign: 'left',
+  },
+  editButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    marginRight: 0,
+  },
+  editIcon: {
+    fontSize: 18,
+    color: '#B6B7B7',
   },
 };

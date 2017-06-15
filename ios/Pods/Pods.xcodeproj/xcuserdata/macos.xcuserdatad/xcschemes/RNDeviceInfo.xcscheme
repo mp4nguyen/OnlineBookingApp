@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '107BCE5AEC789602118BC43C19655B2B'
+               BlueprintIdentifier = '39F140D1298CE8C9699A6E6C12256FCE'
                BlueprintName = 'RNDeviceInfo'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRNDeviceInfo.a'>

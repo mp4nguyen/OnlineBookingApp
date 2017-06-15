@@ -3,7 +3,10 @@ import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'rea
 import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Content, Text, Button, Icon, Body, H3, Footer, ListItem, Radio, Item, Picker, Input } from 'native-base';
+import { Container, Header, Content, Text, Button, Body, H3, Footer, ListItem, Radio, Item, Picker, Input } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import moment from 'moment';
 import Lightbox from 'react-native-lightbox';
@@ -14,7 +17,11 @@ import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
+
 import { setNewProfile } from '../../actions/booking';
+import { setProfilesProps } from '../../actions/pageControl';
+import { goToPage } from '../../actions/nextPage';
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const primary = require('../../themes/variable').brandPrimary;
@@ -27,6 +34,7 @@ const {
 class Booking extends Component {
 
   static propTypes = {
+    setProfilesProps: React.PropTypes.func,
     setNewProfile: React.PropTypes.func,
     popRoute: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
@@ -37,6 +45,7 @@ class Booking extends Component {
   constructor(props) {
     super(props);
     this.addNewProfile = this.addNewProfile.bind(this);
+    this.goToProfiles = this.goToProfiles.bind(this);
   }
 
   popRoute() {
@@ -51,38 +60,46 @@ class Booking extends Component {
     this.props.setNewProfile().then(() => this.pushRoute('bookingProfile'));
   }
 
+  goToProfiles(){
+    this.props.setProfilesProps();
+    this.props.goToProfiles();
+  }
+
   render() {
-    const { profile } = this.props.booking;
-    const { firstName, lastName, dob, email, address, mobile } = profile;
+
+    const { firstName, lastName, dob, email, address, mobile,ward,suburbDistrict,stateProvince,postcode } = this.props.profile;
     return (
       <Container>
         <HeaderContent />
-
         <Content showsVerticalScrollIndicator={false}>
           <View style={styles.contentWrapper}>
             <AppointmentSection />
             <Text style={styles.title}>BOOK THIS APPOINTMENT FOR</Text>
             <View style={styles.about}>
-              <Text style={styles.patientName}>{firstName} {lastName}</Text>
-              <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 20, paddingTop: 5, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={styles.buttonText}>{email}</Text>
-                <Radio selected />
+              <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 5, paddingTop: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text style={styles.patientName}>{firstName} {lastName}</Text>
+                <TouchableOpacity style={styles.editButton} onPress={this.addNewProfile}>
+                  <Icon name="facebook" style={styles.editIcon} />
+                </TouchableOpacity>
               </View>
               <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View>
-                  <Text style={{ fontSize: 15 }}>{mobile}</Text>
-                  <Text style={{ fontSize: 15 }}>DBO: {!!dob && moment(dob).format('DD/MM/YY')}</Text>
+                  <Text style={styles.patientInfo}>{email}</Text>
+                  <Text style={styles.patientInfo}>{mobile}</Text>
+                  <Text style={styles.patientInfo}>DOB: {!!dob && moment(dob).format('DD/MM/YYYY')}</Text>
                 </View>
                 <View style={{ flex: 1, alignItems: 'flex-end' }}>
                   <Text style={styles.address} >{address}</Text>
+                  <Text style={styles.address} >{ward} {suburbDistrict}</Text>
+                  <Text style={styles.address} >{stateProvince} {postcode}</Text>
                 </View>
               </View>
               <TouchableOpacity style={styles.radioBtnPrimary} onPress={this.addNewProfile}>
                 <Text style={styles.buttonTextPrimary}>Create New Profile</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.radioBtnPrimary} onPress={() => this.pushRoute('profiles')}>
-              <Text style={styles.buttonTextPrimary}>Edit Selected Patient Information</Text>
+            <TouchableOpacity style={styles.radioBtnPrimary} onPress={this.goToProfiles}>
+              <Text style={styles.buttonTextPrimary}>Select Patient</Text>
             </TouchableOpacity>
           </View>
         </Content>
@@ -102,12 +119,15 @@ function bindAction(dispatch) {
     popRoute: key => dispatch(popRoute(key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     setNewProfile: () => dispatch(setNewProfile(true)),
+    setProfilesProps: () => dispatch(setProfilesProps({propName:'nextPage',propValue:'patientProfile'})),
+    goToProfiles: () => dispatch(goToPage('profiles')),
+
   };
 }
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  booking: state.booking.booking,
+  profile: state.user.profile
 });
 
 export default connect(mapStateToProps, bindAction)(Booking);

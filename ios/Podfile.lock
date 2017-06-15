@@ -1,8 +1,8 @@
 PODS:
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
   - React (0.41.2):
     - React/Core (= 0.41.2)
@@ -36,6 +36,8 @@ PODS:
   - React/yoga (0.41.2)
   - RNDeviceInfo (0.9.3):
     - React
+  - RNVectorIcons (4.2.0):
+    - React
 
 DEPENDENCIES:
   - GoogleMaps
@@ -51,18 +53,22 @@ DEPENDENCIES:
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
 
 EXTERNAL SOURCES:
   React:
     :path: ../node_modules/react-native
   RNDeviceInfo:
     :path: ../node_modules/react-native-device-info
+  RNVectorIcons:
+    :path: ../node_modules/react-native-vector-icons
 
 SPEC CHECKSUMS:
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   React: 2b10c07d947dea71c144a33764e9162ed81e3825
   RNDeviceInfo: dc3cbee96cd2392cf03d6ff6191dc15f1606a166
+  RNVectorIcons: 6d98d83e944d15014d8071dd9819beb094c61133
 
-PODFILE CHECKSUM: 7d5051e9bdcf1d078c600c0807537666063744b8
+PODFILE CHECKSUM: 4e9ecdde39efa625d740595a05e3e669d579a1cc
 
 COCOAPODS: 1.2.1

@@ -16,7 +16,9 @@ class AppointmentSection extends Component {
   render() {
     const { slot } = this.props.booking;
     const { clinicName } = this.props.clinic;
-    const { fromTime } = slot;
+    const { fromTime,firstName,lastName } = slot;
+    var doctorName = "Dr. " + firstName + " " + lastName;
+
     return (
       <View style={styles.aptSection}>
         <View style={styles.timeInfo}>
@@ -24,6 +26,7 @@ class AppointmentSection extends Component {
           <Text style={styles.time}>{moment(fromTime).format('h:mm a')}</Text>
         </View>
         <View>
+          <Text style={styles.doctorName}>{doctorName}</Text>
           <Text style={styles.clinicText}>{clinicName}</Text>
         </View>
       </View>

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RNVectorIcons.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>React.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>107BCE5AEC789602118BC43C19655B2B</key>
+		<key>1638F1CEFA077393FDC62185F767E840</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3AA01B3488D90BC9DDEF3EAE9F331201</key>
+		<key>28D1760F456675E7286B4BF4DEBF635B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72D9594AAAF5178BA96F201E3151F6C9</key>
+		<key>39F140D1298CE8C9699A6E6C12256FCE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4E62C9A235D182C3B00A28DF8FDF594</key>
 		<dict>
 			<key>primary</key>
 			<true/>

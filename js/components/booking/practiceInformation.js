@@ -14,50 +14,36 @@ import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
 import HeaderContent from '../headerContent';
-import { updateBooking } from '../../actions/booking';
-import R from 'ramda';
+
+import { goToPage } from '../../actions/nextPage';
+
+//import R from 'ramda';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const primary = require('../../themes/variable').brandPrimary;
-const {
-  popRoute,
-  pushRoute,
-} = actions;
+
 
 class PracticeInformation extends Component {
 
   static propTypes = {
-    updateBooking: React.PropTypes.func,
-    booking: React.PropTypes.object,
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
+    goToPage: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
     user: React.PropTypes.object,
   }
+
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
   }
 
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
   submit() {
-    const { navigation } = this.props;
-    const pushRouteFn = this.props.pushRoute;
     if (this.props.user) {
-
-      this.props.updateBooking({
-        profile: this.props.profile
-      }).then(() => {
-        pushRouteFn({ key: 'patientProfile', index: 1 }, navigation.key);
-      });
+      this.props.goToPatientProfile();
     } else {
-      pushRouteFn({ key: 'anonymousProfile', index: 1 }, navigation.key);
+      this.props.goToAnomyousProfile();
     }
   }
 
@@ -86,17 +72,15 @@ class PracticeInformation extends Component {
 
 function bindAction(dispatch) {
   return {
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-    updateBooking: item => dispatch(updateBooking(item)),
+    goToPatientProfile: item => dispatch(goToPage('patientProfile')),
+    goToAnomyousProfile: item => dispatch(goToPage('anonymousProfile')),
+
   };
 }
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  booking: state.booking.booking,
-  user: state.user.user,
-  profile: state.user.profile,
+  user: state.user.user
 });
 
 export default connect(mapStateToProps, bindAction)(PracticeInformation);

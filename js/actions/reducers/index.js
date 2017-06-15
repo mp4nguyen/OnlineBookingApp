@@ -8,6 +8,7 @@ import user from './user';
 import invoice from './invoice';
 import spinner from './spinner'
 import searchClinic from './searchClinic'
+import pageControl from './pageControl'
 
 export default combineReducers({
   drawer,
@@ -17,4 +18,5 @@ export default combineReducers({
   user,
   invoice,
   spinner,
+  pageControl
 });

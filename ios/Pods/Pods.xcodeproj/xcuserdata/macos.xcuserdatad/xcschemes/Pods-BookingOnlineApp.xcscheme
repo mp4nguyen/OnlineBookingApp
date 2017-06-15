@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '72D9594AAAF5178BA96F201E3151F6C9'
+               BlueprintIdentifier = 'D4E62C9A235D182C3B00A28DF8FDF594'
                BlueprintName = 'Pods-BookingOnlineApp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-BookingOnlineApp.a'>

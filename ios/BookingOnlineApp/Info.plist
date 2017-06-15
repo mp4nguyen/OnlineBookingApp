@@ -78,7 +78,6 @@
 		<string>UTM-Dax.ttf</string>
 		<string>UTM-Dax_bold.ttf</string>
 		<string>UTM-Dax_medium.ttf</string>
-		<string></string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
 		<string>FontAwesome.ttf</string>
@@ -88,13 +87,7 @@
 		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
-		<string>UTM-Dax_bold.ttf</string>
-		<string>UTM-Dax_medium.ttf</string>
-		<string>UTM-Dax.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>UTM-Dax_bold.ttf</string>
-		<string>UTM-Dax_medium.ttf</string>
-		<string>UTM-Dax.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
