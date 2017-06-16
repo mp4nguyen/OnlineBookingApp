@@ -1,9 +1,12 @@
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {  Image, View, TouchableOpacity, Platform, Slider, Dimensions,Animated } from 'react-native';
 import { Content, Text, Button, Body, } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import {showStatusCallBack} from '../../actions/toast';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -22,7 +25,6 @@ class Toast extends Component {
     super(props);
 
    this.animatedValue = new Animated.Value(0);
-
    this.animatedXValue = new Animated.Value(-deviceWidth);
 
   }
@@ -152,24 +154,15 @@ class Toast extends Component {
 
 function bindAction(dispatch) {
   return {
-    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-    updateBooking: item => dispatch(updateBooking(item)),
-    validateProfile: () => dispatch(validateProfile()),
-    goToConfirmation: key => dispatch(goToPage('confirmBooking')),
-    goToLogin: () => {
-      dispatch(setLoginProps({propName:'nextPage',propValue:'patientProfile'}))
-      dispatch(replaceRoute('login'));
-    },
-
+    showStatusCallBack: () => dispatch(showStatusCallBack()),
   };
 }
 
 const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-  booking: state.booking.booking,
-  user: state.user.user,
+  type: state.toast.type,
+  message: state.toast.message,
+  isShow: state.toast.isShow,
+  height: state.toast.height,
 });
 
-export default Toast;
+export default connect(mapStateToProps,bindAction)(Toast);

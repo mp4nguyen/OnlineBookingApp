@@ -10,8 +10,9 @@ import { Container, Content, Text, Button, Icon, Item, Input, View, Header, Body
 import R from 'ramda';
 import styles from './styles';
 import ProfileForm from '../profile-form';
-import { createProfile } from '../../actions/user';
-import { updateBooking } from '../../actions/booking';
+import { signupOrCreateMemberOrUpdateMember ,validateProfile} from '../../actions/user';
+import {showToast} from '../../actions/toast';
+
 const {
   reset,
   popRoute,
@@ -41,17 +42,31 @@ class SignUpProfile extends Component {
   }
 
   signUp() {
-    const { saveProfile, popRoute, navigation, userId, canUpdateBooking } = this.props;
-    const profile = { ...this.state, userId };
-    !!saveProfile && saveProfile(profile).then(() => {
-      const { key } = R.last(R.reverse(navigation.routes));
-      !!canUpdateBooking && this.props.updateBooking({ profile });
-      if (!!key && key === 'home') {
-        popRoute(navigation.key);
-      } else {
-        this.props.reset(navigation.key);
+    const { navigation } = this.props;
+    this.props.validateProfile().then(()=>{
+      this.props.signupOrCreateMemberOrUpdateMember().then(() => {
+        const { key } = R.last(R.reverse(navigation.routes));
+
+        if (!!key && key === 'home') {
+          popRoute(navigation.key);
+        } else {
+          this.props.reset(navigation.key);
+        }
+      }).catch(alert);
+    },err=>{
+      console.log(" err = ",err);
+      var errString = "";
+      for(var key in err) {
+          var value = err[key];
+          errString += key + ": ";
+          value.forEach(e=>{
+            errString += e + '; ';
+          });
+          errString += "\n"
       }
-    }).catch(alert);
+      console.log("errString = ",errString);
+      this.props.showToast({type:'error',message:errString,height:100});
+    });
   }
 
   render() {
@@ -88,8 +103,9 @@ function bindAction(dispatch) {
   return {
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
     popRoute: key => dispatch(popRoute(key)),
-    saveProfile: profile => dispatch(createProfile(profile)),
-    updateBooking: profile => dispatch(updateBooking(profile)),
+    validateProfile: () => dispatch(validateProfile()),
+    showToast: prop => dispatch(showToast(prop)),
+    signupOrCreateMemberOrUpdateMember: () => dispatch(signupOrCreateMemberOrUpdateMember()),
   };
 }
 

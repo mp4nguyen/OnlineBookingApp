@@ -61,6 +61,11 @@ const profileValidator = [
   {field:'mobile',func: value => isEmpty("Mobile",value)},
 ];
 
+const signupValidator = [
+  {field:'email',func: value => isEmpty("Email",value)},
+  {field:'email',func: value => isNotValidateEmail("Email",value)},
+  {field:'password',func: value => isEmpty("Password",value)},
+];
 
 export function changeSignUpValue(value): Action {
     return ({
@@ -130,6 +135,102 @@ export function validateProfile(): Action {
 
     });
 }
+
+export function validateSignup(): Action {
+  return (dispatch,getState) => new Promise((resolve,reject) => {
+      var signup = getState().user.signup;
+      var errors = {};
+      let count = 0;
+
+      console.log("signup = ",signup);
+
+      signupValidator.forEach( (validator) => {
+
+        validatorValue = validator.func(signup[validator.field]);
+
+        console.log("will validate key = ",validator.field, " validatorValue = ",validatorValue);
+
+        if (validatorValue.value) {
+          count += 1;
+          var error = errors[validatorValue.fieldName];
+          if(error){
+            error.push(validatorValue.description)
+          }else{
+            errors[validatorValue.fieldName] = [validatorValue.description]
+          }
+        }
+      });
+
+      if (count > 0) {
+        reject(errors);
+      }else{
+        resolve();
+      }
+      dispatch({
+        type: VALIDATE_SIGNUP,
+        payload: errors
+      });
+
+    });
+}
+
+export function signupOrCreateMemberOrUpdateMember(): Action {
+  //this function is used to signup and make a new member if signup object is not null and personId is null
+  //will create new member if signup object is null and personId is null
+  //will update member if personId is not null
+  return (dispatch,getState) => {
+    let state = getState();
+    //state.member.member.baseinfo.dob = state.member.member.baseinfo.dob.format("YYYY-MM-DDTHH:mm:ssZ")
+    //state.member.member.gp.medicareExpired = state.member.member.gp.medicareExpired.format("YYYY-MM-DDTHH:mm:ssZ")
+    ////console.log("stateOrigin = ",stateOrigin," state = ",state);
+
+    return new Promise((resolve,reject) => {
+      if( state.user.signup && state.user.signup.email && state.user.signup.password){
+        var object = {...state.user.profile};
+        object.username = object.email;
+        console.log("Will create account for ",object);
+        postRequest('api/v1/signup2', object).then((res) => {
+            console.log("api/v1/signup2 = ",res);
+
+            dispatch({
+              type: USER_LOGIN,
+              payload: res.account,
+            });
+
+            if(res.isSuccess){
+              resolve("OK");
+            }else{
+              reject();
+            }
+        });
+      }
+      // else if (!state.member.member.baseinfo.personId && !state.member.member.signup.username){
+      //   postRequest2('api/v1/newMember', state.member.member).then((response) => {
+      //     console.log("api/v1/newMember = ",response);
+      //       resolve("OK");
+      //       dispatch({
+      //         type: UPDATE_MEMBER,
+      //         payload: response,
+      //       });
+      //   });
+      // }else{
+      //   postRequest2('api/v1/updateMember', state.member.member).then((response) => {
+      //     console.log("api/v1/updateMember = ",response);
+      //       resolve("OK");
+      //       dispatch({
+      //         type: UPDATE_MEMBER,
+      //         payload: response,
+      //       });
+      //   });
+      // }
+
+
+    });
+
+
+  }
+}
+
 
 export function login(user): Action {
   return dispatch => postRequest('/api/v1/loginAT', user)

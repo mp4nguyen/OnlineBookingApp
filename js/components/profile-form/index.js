@@ -29,32 +29,19 @@ class ProfileForm extends Component {
     this.props.changeProfileValue({[field]: value} );
   }
 
-  //
-  // address
-  //
-  // country
-  //
-  // dob
-  //
-  // email
-  //
-  // firstName
-  //
-  // gender
-  //
-  // lastName
-  //
-  // mobile
-  //
-  // postcode
-  //
-  // stateProvince
-  //
-  // suburbDistrict
-  //
-  // ward
-
   render() {
+
+    let dobValue,genderValue;
+    if(this.props.profile.dob){
+        dobValue = this.props.profile.dob.format('DD/MM/YYYY');
+    }
+
+    if(this.props.profile.gender=='MALE'){
+      genderValue = false
+    }else if (this.props.profile.gender=='FEMALE'){
+      genderValue = true
+    }
+
     return (
 
 
@@ -99,7 +86,7 @@ class ProfileForm extends Component {
                       style={styles.switch}
                       thumbTintColor="#ccc"
                       tintColor="#aaa"
-                      value={this.props.profile.gender}
+                      value={genderValue}
                     />
                   </Col>
                   <Col>
@@ -117,12 +104,12 @@ class ProfileForm extends Component {
               <Col >
                 <DatePicker
                   style={{ width: 200, borderWidth: 0,marginTop:0,height:20 }}
-                  date={moment(this.props.profile.dob).format('DD/MM/YYYY')}
+                  date={dobValue}
                   mode="date"
                   placeholder="Date Of Birth *"
                   format="DD/MM/YYYY"
                   minDate="01/01/1990"
-                  maxDate={moment().format('DD/MM/YYYY')}
+                  maxDate={new moment().format('DD/MM/YYYY')}
                   confirmBtnText="Select"
                   cancelBtnText="Cancel"
                   showIcon={false}

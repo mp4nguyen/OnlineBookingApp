@@ -27,6 +27,8 @@ const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const primary = require('../../themes/variable').brandPrimary;
 import navigateTo from '../../actions/sideBarNav';
+import {showToast} from '../../actions/toast';
+
 const {
   popRoute,
   pushRoute,
@@ -87,7 +89,8 @@ class AnonymousProfile extends Component {
           errString += "\n"
       }
       console.log("errString = ",errString);
-      this.showToast(errString);
+      this.props.showToast({type:'error',message:errString,height:100});
+      //this.showToast(errString);
     });
     // if (this.props.user) {
     //   this.props.pushRoute({ key: 'patientProfile', index: 1 }, this.props.navigation.key);
@@ -127,11 +130,13 @@ class AnonymousProfile extends Component {
             </View>
           </Content>
           <BookingFooter step={2} continueFunc={this.submit}/>
-          <Toast type="error" message={this.state.message} height={100} isShow={this.state.showModal} showStatusCallBack={this.showStatusCallBack.bind(this)} />
+
       </Container>
     );
   }
 }
+
+//<Toast type="error" message={this.state.message} height={100} isShow={this.state.showModal} showStatusCallBack={this.showStatusCallBack.bind(this)} />
 
 function bindAction(dispatch) {
   return {
@@ -139,6 +144,7 @@ function bindAction(dispatch) {
     popRoute: key => dispatch(popRoute(key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     updateBooking: item => dispatch(updateBooking(item)),
+    showToast: prop => dispatch(showToast(prop)),
     validateProfile: () => dispatch(validateProfile()),
     goToConfirmation: key => dispatch(goToPage('confirmBooking')),
     goToLogin: () => {

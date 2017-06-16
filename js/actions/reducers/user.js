@@ -3,7 +3,7 @@ import type { Action } from '../types';
 import {CHANGE_SIGNUP_VALUE,VALIDATE_SIGNUP,CHANGE_PROFILE_VALUE,VALIDATE_PROFILE, USER_LOGIN, USER_LOGOUT, DEFAULT_PROFILE, CREATE_USER, CREATE_PROFILE, UPDATE_PROFILE, DELETE_PROFILE,SELECT_PROFILE } from '../user';
 import { AsyncStorage } from 'react-native';
 import R from 'ramda';
-
+import moment from 'moment';
 
 export type State = {
     user: object,
@@ -16,7 +16,7 @@ export const initialProfile = {
   firstName: null,
   lastName: null,
   dob: null,
-  gender: false,
+  gender: 'MALE',
   mobile: null,
   email: null,
   address: null,
@@ -48,6 +48,7 @@ const ACTION_HANDLERS = {
   [USER_LOGIN]: (state, action) => {
     var profile = action.payload.account.profile;
     profile.patientId = action.payload.account.patientId;
+    profile.dob = moment(profile.dob);
 
     return ({
       ...state,
@@ -61,9 +62,12 @@ const ACTION_HANDLERS = {
     });
   },
   [SELECT_PROFILE]: (state, action) => {
+    var profile =  {...action.payload};
+    profile.dob = moment(profile.dob);
+
     return ({
       ...state,
-      profile: action.payload,
+      profile,
     });
   },
   [CHANGE_SIGNUP_VALUE]: (state, action) => {

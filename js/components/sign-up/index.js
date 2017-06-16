@@ -7,9 +7,11 @@ import navigateTo from '../../actions/sideBarNav';
 import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, Item, Input, View, Header, Body, Left, Right } from 'native-base';
+
+import {showToast} from '../../actions/toast';
 import ProgressBar from './../loaders/ProgressBar';
 import styles from './styles';
-import { changeSignUpValue,checkAvailableAccount } from '../../actions/user';
+import { changeSignUpValue,checkAvailableAccount,changeProfileValue,validateSignup } from '../../actions/user';
 
 const {
   reset,
@@ -67,13 +69,29 @@ class SignUp extends Component {
     const that = this;
     return (target) => {
       this.props.changeSignUpValue({[input]: target.nativeEvent.text});
+      this.props.changeProfileValue({[input]: target.nativeEvent.text});
     };
   }
   signUp() {
     //this.navigateTo('signUpProfile');
-    this.props.checkAvailableAccount().then(() => {
-      this.navigateTo('signUpProfile');
-    }).catch(alert);
+    this.props.validateSignup().then(()=>{
+      this.props.checkAvailableAccount().then(() => {
+        this.navigateTo('signUpProfile');
+      }).catch(alert);
+    },err=>{
+      console.log(" err = ",err);
+      var errString = "";
+      for(var key in err) {
+          var value = err[key];
+          errString += key + ": ";
+          value.forEach(e=>{
+            errString += e + '; ';
+          });
+          errString += "\n"
+      }
+      console.log("errString = ",errString);
+      this.props.showToast({type:'error',message:errString,height:50});
+    });
   }
   render() {
     return (
@@ -133,6 +151,7 @@ class SignUp extends Component {
           </View>
 
         </Image>
+
       </Container>
     );
   }
@@ -146,7 +165,10 @@ function bindAction(dispatch) {
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     popRoute: key => dispatch(popRoute(key)),
     changeSignUpValue: value => dispatch(changeSignUpValue(value)),
+    changeProfileValue: value => dispatch(changeProfileValue(value)),
     checkAvailableAccount: () => dispatch(checkAvailableAccount()),
+    validateSignup: () => dispatch(validateSignup()),
+    showToast: (prop) => dispatch(showToast(prop)),
   };
 }
 

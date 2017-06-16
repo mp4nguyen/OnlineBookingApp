@@ -35,6 +35,7 @@ import { statusBarColor } from './themes/base-theme';
 import AnonymousProfile from './components/booking/anonymousProfile';
 import SpinnerView from './components/spinner';
 import Appointment from './components/appointment/';
+import Toast from './components/toast';
 // import upcommingAppointment from './components/upcomming-appointment/';
 
 const {
@@ -108,7 +109,7 @@ class AppNavigator extends Component {
       case 'signUpProfile':
         return <SignUpProfile />;
       case 'profiles':
-        return <Profiles />;        
+        return <Profiles />;
       case 'profile':
         return <MyProfile />;
       case 'sideBar':
@@ -185,6 +186,7 @@ class AppNavigator extends Component {
           renderScene={this._renderScene}
         />
         <SpinnerView />
+        <Toast/>
       </Drawer>
     );
   }
