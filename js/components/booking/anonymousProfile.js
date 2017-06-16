@@ -1,5 +1,6 @@
+
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'react-native';
+import { Image, View, TouchableOpacity, Platform, Slider, Dimensions,Animated } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -10,6 +11,7 @@ import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
 
+import Toast from '../toast';
 import BookingFooter from './bookingFooter';
 import AppointmentSection from './appointmentSection';
 import styles from './styles';
@@ -17,6 +19,7 @@ import HeaderContent from '../headerContent';
 import { updateBooking } from '../../actions/booking';
 import { goToPage,replaceRoute } from '../../actions/nextPage';
 import {setLoginProps} from '../../actions/pageControl';
+import {validateProfile} from '../../actions/user';
 
 import R from 'ramda';
 import ProfileForm from '../profile-form';
@@ -28,6 +31,7 @@ const {
   popRoute,
   pushRoute,
 } = actions;
+
 
 class AnonymousProfile extends Component {
 
@@ -45,8 +49,17 @@ class AnonymousProfile extends Component {
   }
   constructor(props) {
     super(props);
+
+   this.animatedValue = new Animated.Value(0)
+   this.animatedXValue = new Animated.Value(-deviceWidth)
+   this.state = {
+     modalShown: false,
+     showModal: false,
+     toastColor: 'green',
+     message: ''
+   }
+
     this.submit = this.submit.bind(this);
-    this.changeProfile = this.changeProfile.bind(this);
   }
 
   componentWilMount(){
@@ -61,20 +74,44 @@ class AnonymousProfile extends Component {
     this.props.popRoute(this.props.navigation.key);
   }
 
-  submit() {
-    if (this.props.user) {
-      this.props.pushRoute({ key: 'patientProfile', index: 1 }, this.props.navigation.key);
-    } else {
-      this.props.navigateTo('confirmBooking', 'practiceInformation');
-    }
+  submit(){
+    this.props.validateProfile().then(()=>{this.props.goToConfirmation()},err=>{
+      console.log(" err = ",err);
+      var errString = "";
+      for(var key in err) {
+          var value = err[key];
+          errString += key + ": ";
+          value.forEach(e=>{
+            errString += e + '; ';
+          });
+          errString += "\n"
+      }
+      console.log("errString = ",errString);
+      this.showToast(errString);
+    });
+    // if (this.props.user) {
+    //   this.props.pushRoute({ key: 'patientProfile', index: 1 }, this.props.navigation.key);
+    // } else {
+    //   this.props.navigateTo('confirmBooking', 'practiceInformation');
+    // }
   }
-  changeProfile(value) {
-    this.props.updateBooking({ isFilledProfile: true, profile: value });
+
+  showToast(message){
+    this.setState({showModal:true,message});
   }
+
+  showStatusCallBack(){
+    this.setState({showModal:false});
+  }
+
   render() {
+    let animation = this.animatedValue.interpolate({
+        inputRange: [0, .3, 1],
+        outputRange: [-70, -10, 0]
+      })
+
     return (
       <Container>
-
           <HeaderContent />
           <AppointmentSection />
           <View style={styles.alertView}>
@@ -85,12 +122,12 @@ class AnonymousProfile extends Component {
           <Content showsVerticalScrollIndicator={false}>
             <View style={styles.contentWrapper}>
               <View>
-                <ProfileForm profile={this.props.booking.profile} onChange={this.changeProfile} />
+                <ProfileForm/>
               </View>
             </View>
           </Content>
-          <BookingFooter step={2} continueFunc={() => this.submit('')}/>
-
+          <BookingFooter step={2} continueFunc={this.submit}/>
+          <Toast type="error" message={this.state.message} height={100} isShow={this.state.showModal} showStatusCallBack={this.showStatusCallBack.bind(this)} />
       </Container>
     );
   }
@@ -102,11 +139,13 @@ function bindAction(dispatch) {
     popRoute: key => dispatch(popRoute(key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     updateBooking: item => dispatch(updateBooking(item)),
+    validateProfile: () => dispatch(validateProfile()),
+    goToConfirmation: key => dispatch(goToPage('confirmBooking')),
     goToLogin: () => {
       dispatch(setLoginProps({propName:'nextPage',propValue:'patientProfile'}))
       dispatch(replaceRoute('login'));
     },
-    
+
   };
 }
 

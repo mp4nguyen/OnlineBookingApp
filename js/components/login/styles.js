@@ -12,12 +12,15 @@ const deviceWidth = Dimensions.get('window').width;
 export default {
   logo: {
     width: deviceWidth,
-    margin: 20,
-    paddingTop: 10,
+    height: 150,
+    margin: 0,
+    paddingTop: 0,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   iosShadow: {
+    width: deviceWidth/2,
+    height: 100,
     resizeMode: 'contain',
   },
   inputGrp: {

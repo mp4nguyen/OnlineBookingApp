@@ -90,26 +90,35 @@ export default {
     flexDirection: 'row',
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+    marginLeft:20,
   },
   inputView: {
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+    marginLeft:20
   },
   input: {
     color: '#000',
     height: 40,
-    width: deviceWidth - 20,
+    width: deviceWidth,
     flex: null,
-    paddingLeft: 20
+    paddingLeft: 0
+  },
+  inputHalf: {
+    color: '#000',
+    height: 40,
+    width: (deviceWidth/2),
+    flex: null,
+    paddingLeft: 0
   },
   label: {
     color: '#333',
-    paddingLeft: 20,
+    paddingLeft: 0,
   },
   dobLabel: {
     color: '#333',
     height: 30,
     marginTop: 10,
-    paddingLeft: 20,
+    paddingLeft: 0,
   },
 };

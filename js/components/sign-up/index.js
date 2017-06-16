@@ -9,7 +9,8 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, Text, Button, Icon, Item, Input, View, Header, Body, Left, Right } from 'native-base';
 import ProgressBar from './../loaders/ProgressBar';
 import styles from './styles';
-import { createUser } from '../../actions/user';
+import { changeSignUpValue,checkAvailableAccount } from '../../actions/user';
+
 const {
   reset,
   pushRoute,
@@ -62,17 +63,15 @@ class SignUp extends Component {
   }
 
   changeValue(input) {
+
     const that = this;
     return (target) => {
-      const user = {
-        ...that.state,
-        [input]: target.nativeEvent.text,
-      };
-      that.setState(user);
+      this.props.changeSignUpValue({[input]: target.nativeEvent.text});
     };
   }
   signUp() {
-    this.props.createUser(this.state).then(() => {
+    //this.navigateTo('signUpProfile');
+    this.props.checkAvailableAccount().then(() => {
       this.navigateTo('signUpProfile');
     }).catch(alert);
   }
@@ -82,9 +81,7 @@ class SignUp extends Component {
         <Image source={require('../../../images/BG-signUp.jpg')} style={styles.background} >
           <Header style={styles.header}>
             <Body>
-              <Text style={styles.signupHeader}>
-                                    CREATE ACCOUNT
-                                </Text>
+              <Text style={styles.signupHeader}>CREATE ACCOUNT</Text>
             </Body>
           </Header>
 
@@ -92,41 +89,21 @@ class SignUp extends Component {
             <View style={styles.signupContainer}>
               <View style={styles.formContainer}>
                 <Item style={styles.inputGrp}>
-                  <Icon name="person" />
-                  <Input
-                    value={this.state.username}
-                    onChange={this.changeValue('username')}
-                    placeholder="Username" style={styles.input}
-                    placeholderTextColor="#FFF"
-                  />
-                </Item>
-                <ProgressBar style={styles.progress} color="#fff" progress={30} />
-                <Item style={styles.inputGrp}>
-                  <Icon name="unlock" />
-                  <Input
-                    value={this.state.password}
-                    onChange={this.changeValue('password')}
-                    placeholder="Password" secureTextEntry style={styles.input}
-                    placeholderTextColor="#FFF"
-                  />
-                </Item>
-                <ProgressBar style={styles.progress} color="#fff" progress={30} />
-                <Item style={styles.inputGrp}>
-                  <Icon name="unlock" />
-                  <Input
-                    value={this.state.repassword}
-                    onChange={this.changeValue('repassword')}
-                    placeholder="Re-Password" secureTextEntry style={styles.input}
-                    placeholderTextColor="#FFF"
-                  />
-                </Item>
-                <ProgressBar style={styles.progress} color="#fff" progress={30} />
-                <Item style={styles.inputGrp}>
                   <Icon name="mail-open" />
                   <Input
-                    value={this.state.email}
+                    value={this.props.email}
                     onChange={this.changeValue('email')}
                     placeholder="Email" style={styles.input}
+                    placeholderTextColor="#FFF"
+                  />
+                </Item>
+                <ProgressBar style={styles.progress} color="#fff" progress={30} />
+                <Item style={styles.inputGrp}>
+                  <Icon name="unlock" />
+                  <Input
+                    value={this.props.password}
+                    onChange={this.changeValue('password')}
+                    placeholder="Password" secureTextEntry style={styles.input}
                     placeholderTextColor="#FFF"
                   />
                 </Item>
@@ -168,12 +145,14 @@ function bindAction(dispatch) {
     reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     popRoute: key => dispatch(popRoute(key)),
-    createUser: user => dispatch(createUser(user)),
+    changeSignUpValue: value => dispatch(changeSignUpValue(value)),
+    checkAvailableAccount: () => dispatch(checkAvailableAccount()),
   };
 }
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
+  signup: state.user.signup
 });
 
 export default connect(mapStateToProps, bindAction)(SignUp);

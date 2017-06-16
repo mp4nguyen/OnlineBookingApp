@@ -1,12 +1,30 @@
 
 import type { Action } from '../types';
-import {CHANGE_PROFILE_VALUE, USER_LOGIN, USER_LOGOUT, DEFAULT_PROFILE, CREATE_USER, CREATE_PROFILE, UPDATE_PROFILE, DELETE_PROFILE,SELECT_PROFILE } from '../user';
+import {CHANGE_SIGNUP_VALUE,VALIDATE_SIGNUP,CHANGE_PROFILE_VALUE,VALIDATE_PROFILE, USER_LOGIN, USER_LOGOUT, DEFAULT_PROFILE, CREATE_USER, CREATE_PROFILE, UPDATE_PROFILE, DELETE_PROFILE,SELECT_PROFILE } from '../user';
 import { AsyncStorage } from 'react-native';
 import R from 'ramda';
+
+
 export type State = {
     user: object,
     token: object
 }
+
+export const initialProfile = {
+  patientId: -1,
+  personId: -1,
+  firstName: null,
+  lastName: null,
+  dob: null,
+  gender: false,
+  mobile: null,
+  email: null,
+  address: null,
+  ward: null,
+  suburbDistrict: null,
+  stateProvince: null,
+  postcode:null,
+};
 
 const initialState = {
   user: null,
@@ -14,9 +32,17 @@ const initialState = {
   defaultProfile: DEFAULT_PROFILE,
   fatherPersonId: null,
   fatherPatientId: null,
-  profile:{},
+  profile:initialProfile,
   profiles:[],
+  profileErrors:{},
+  signup: {
+    email:'',
+    password:''
+  },
+  signupErrors:{}
 };
+
+
 
 const ACTION_HANDLERS = {
   [USER_LOGIN]: (state, action) => {
@@ -40,13 +66,31 @@ const ACTION_HANDLERS = {
       profile: action.payload,
     });
   },
+  [CHANGE_SIGNUP_VALUE]: (state, action) => {
+    var signup = {...state.signup,...action.payload};
+    return ({
+      ...state,
+      signup,
+    });
+  },
+  [VALIDATE_SIGNUP]: (state, action) => {
+    return ({
+      ...state,
+      signupErrors: action.payload,
+    });
+  },
   [CHANGE_PROFILE_VALUE]: (state, action) => {
-    console.log("action.payload = ",action.payload);
     var value = action.payload
     var profile = {...state.profile,...value};
     return ({
       ...state,
       profile,
+    });
+  },
+  [VALIDATE_PROFILE]: (state, action) => {
+    return ({
+      ...state,
+      profileErrors: action.payload,
     });
   },
   [USER_LOGOUT]: (state, action) => ({

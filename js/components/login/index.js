@@ -15,8 +15,9 @@ const {
   popRoute,
 } = actions;
 
+
 const bg = require('../../../images/BG.jpg');
-const logo = require('../../../images/logo_Asset 1.png');
+const logo = require('../../../images/LogoRedid.png');
 
 class Login extends Component {
 

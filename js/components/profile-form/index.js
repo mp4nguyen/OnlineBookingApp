@@ -67,7 +67,7 @@ class ProfileForm extends Component {
                 <Input
                   value={this.props.profile.firstName}
                   onChange={target => this.changeValue('firstName', target.nativeEvent.text)}
-                  placeholder="First Name" style={styles.input}
+                  placeholder="First Name *" style={styles.inputHalf}
                   placeholderTextColor="#CCCBCB"
                 />
               </View>
@@ -77,7 +77,7 @@ class ProfileForm extends Component {
                 <Input
                   value={this.props.profile.lastName}
                   onChange={target => this.changeValue('lastName', target.nativeEvent.text)}
-                  placeholder="Last Name" style={styles.input}
+                  placeholder="Last Name *" style={styles.inputHalf}
                   placeholderTextColor="#CCCBCB"
                 />
               </View>
@@ -157,7 +157,8 @@ class ProfileForm extends Component {
             <Input
               value={this.props.profile.mobile}
               onChange={target => this.changeValue('mobile', target.nativeEvent.text)}
-              placeholder="Mobile" style={styles.input}
+              keyboardType = 'numeric'
+              placeholder="Mobile *" style={styles.input}
               placeholderTextColor="#CCCBCB"
             />
           </View>
@@ -165,7 +166,7 @@ class ProfileForm extends Component {
             <Input
               value={this.props.profile.email}
               onChange={target => this.changeValue('email', target.nativeEvent.text)}
-              placeholder="Email" style={styles.input}
+              placeholder="Email *" style={styles.input}
               placeholderTextColor="#CCCBCB"
             />
           </View>
@@ -194,7 +195,7 @@ class ProfileForm extends Component {
                 <Input
                   value={this.props.profile.stateProvince}
                   onChange={target => this.changeValue('stateProvince', target.nativeEvent.text)}
-                  placeholder="State" style={styles.input}
+                  placeholder="State" style={styles.inputHalf}
                   placeholderTextColor="#CCCBCB"
                 />
               </View>
@@ -204,7 +205,7 @@ class ProfileForm extends Component {
                 <Input
                   value={this.props.profile.postcode}
                   onChange={target => this.changeValue('postcode', target.nativeEvent.text)}
-                  placeholder="Postcode" style={styles.input}
+                  placeholder="Postcode" style={styles.inputHalf}
                   placeholderTextColor="#CCCBCB"
                 />
               </View>
