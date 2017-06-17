@@ -12,10 +12,12 @@ import styles from './styles';
 import ProfileForm from '../profile-form';
 import { signupOrCreateMemberOrUpdateMember ,validateProfile} from '../../actions/user';
 import {showToast} from '../../actions/toast';
+import {goToPage} from '../../actions/nextPage';
 
 const {
   reset,
   popRoute,
+  replaceAtIndex
 } = actions;
 
 class SignUpProfile extends Component {
@@ -41,16 +43,19 @@ class SignUpProfile extends Component {
     this.signUp = this.signUp.bind(this);
   }
 
+  replaceRoute(route) {
+    const navigation = this.props.navigation;
+    this.props.replaceAtIndex(navigation.index, { key: route }, navigation.key);
+  }
+
   signUp() {
-    const { navigation } = this.props;
+
     this.props.validateProfile().then(()=>{
       this.props.signupOrCreateMemberOrUpdateMember().then(() => {
-        const { key } = R.last(R.reverse(navigation.routes));
-
-        if (!!key && key === 'home') {
-          popRoute(navigation.key);
+        if(this.props.nextPage){
+          this.replaceRoute(this.props.nextPage);
         } else {
-          this.props.reset(navigation.key);
+          this.props.goToHome();
         }
       }).catch(alert);
     },err=>{
@@ -101,18 +106,19 @@ class SignUpProfile extends Component {
 
 function bindAction(dispatch) {
   return {
+    replaceAtIndex: (index, route, key) => dispatch(replaceAtIndex(index, route, key)),
     reset: key => dispatch(reset([{ key: 'home' }], key, 0)),
     popRoute: key => dispatch(popRoute(key)),
     validateProfile: () => dispatch(validateProfile()),
     showToast: prop => dispatch(showToast(prop)),
+    goToHome: () => dispatch(goToPage('home')),
     signupOrCreateMemberOrUpdateMember: () => dispatch(signupOrCreateMemberOrUpdateMember()),
   };
 }
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  userId: R.pathOr(1, ['user', 'userId'], state.user),
-  canUpdateBooking: !state.booking.booking.isFilledProfile,
+  nextPage: state.pageControl.login.nextPage
 });
 
 export default connect(mapStateToProps, bindAction)(SignUpProfile);

@@ -121,7 +121,7 @@ class Login extends Component {
 
               <View style={styles.otherLinksContainer}>
                 <Left>
-                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.pushRoute('signUp')}>
+                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.replaceRoute('signUp')}>
                     <Text style={styles.helpBtns}>
                       Signup
                       </Text>
@@ -135,7 +135,7 @@ class Login extends Component {
                   </Button>
                 </Body>
                 <Right>
-                  <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.pushRoute('needhelp')}>
+                  <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.replaceRoute('needhelp')}>
                     <Text style={styles.helpBtns}>
                       Need Help?
                       </Text>

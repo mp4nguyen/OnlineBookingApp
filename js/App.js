@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
   },
 });
 
+
+
 class App extends Component {
 
   constructor(props) {
@@ -52,8 +54,11 @@ class App extends Component {
 
   componentWillMount(){
     setURL();
+
+    
+
   }
-  
+
   componentDidMount() {
 
 
