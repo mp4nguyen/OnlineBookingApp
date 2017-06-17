@@ -34,7 +34,7 @@ export function chatMiddleware(store) {
     if (socket && action.type === SELECT_SLOT) {
       // let messages = store.getState().messages;
       console.log("=======> slot = ",action.payload);
-      var sendObject = {type:'slot',message:action.payload}
+      var sendObject = {type:'slot',message:JSON.stringify(action.payload)}
       socket.send( JSON.stringify(sendObject)  );
     }
 
